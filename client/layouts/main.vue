@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>
+  <div class="bg-zinc-50">
     <SiteHeader />
 
     <slot />
