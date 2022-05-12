@@ -92,55 +92,35 @@
           </h2>
 
           <div class="mt-10 flex gap-6">
-            <div aria-label="Industria: Energía y Minería" class="flex-1">
-              <div class="aspect-video max-h-64 w-full">
-                <img
-                  alt=""
-                  class="h-full w-full rounded-xl object-cover"
-                  src="https://images.pexels.com/photos/1058142/pexels-photo-1058142.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1"
-                />
-              </div>
-              <h4 class="mt-4 font-headline text-2xl font-semibold text-zinc-800">Energía y Minería</h4>
-              <p class="mt-2 text-zinc-600">
-                Gestionamos una gran variedad de contenedores cisterna para líquidos, gases y criogénicos
-                diseñados para las necesidades de las industrias mineras y energéticas globales. Nuestros
-                equipos en conjunto con nuestros expertos, han servido a las industrias de energía y minería
-                México y USA.
-              </p>
-            </div>
+            <HomeIndustry
+              class="flex-1"
+              :info="{
+                title: 'Energía y Minería',
+                image:
+                  'https://images.pexels.com/photos/1058142/pexels-photo-1058142.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
+                desc: 'Gestionamos una gran variedad de contenedores cisterna para líquidos, gases y criogénicos diseñados para las necesidades de las industrias mineras y energéticas globales. Nuestros equipos en conjunto con nuestros expertos, han servido a las industrias de energía y minería México y USA.',
+              }"
+            />
 
-            <div aria-label="Industria: Gases" class="flex-1">
-              <div class="aspect-video max-h-64 w-full">
-                <img
-                  alt=""
-                  class="h-full w-full rounded-xl object-cover"
-                  src="https://images.pexels.com/photos/256297/pexels-photo-256297.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1"
-                />
-              </div>
-              <h4 class="mt-4 font-headline text-2xl font-semibold text-zinc-800">Gases</h4>
-              <p class="mt-2 text-zinc-600">
-                Contamos con una extensa cantidad de contenedores. Constantemente ampliamos nuestro catálogo
-                de equipos y ofrecemos a nuestros clientes lo último en tecnología de contenedores de tanques
-                criogénicos y de gas. En Cryotainer proporcionamos contenedores para el transporte y
-                almacenamiento de una amplia variedad de gases.
-              </p>
-            </div>
+            <HomeIndustry
+              class="flex-1"
+              :info="{
+                title: 'Gases',
+                image:
+                  'https://images.pexels.com/photos/256297/pexels-photo-256297.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
+                desc: ' Contamos con una extensa cantidad de contenedores. Constantemente ampliamos nuestro catálogo de equipos y ofrecemos a nuestros clientes lo último en tecnología de contenedores de tanques criogénicos y de gas. En Cryotainer proporcionamos contenedores para el transporte y almacenamiento de una amplia variedad de gases.',
+              }"
+            />
 
-            <div aria-label="Industria: Alimentos y bebidas" class="flex-1">
-              <div class="aspect-video max-h-64 w-full">
-                <img
-                  alt=""
-                  class="h-full w-full rounded-xl object-cover"
-                  src="https://images.pexels.com/photos/3230214/pexels-photo-3230214.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1"
-                />
-              </div>
-              <h4 class="mt-4 font-headline text-2xl font-semibold text-zinc-800">Alimentos y bebidas</h4>
-              <p class="mt-2 text-zinc-600">
-                Nuestra capacidad para diseñar equipos únicos que se adapten a los requisitos de cada cliente
-                nos ha diferenciado de la competencia en este mercado. Incluso contamos con una flota especial
-                y dedicada al servicio de grado alimenticio.
-              </p>
-            </div>
+            <HomeIndustry
+              class="flex-1"
+              :info="{
+                title: 'Alimentos y bebidas',
+                image:
+                  'https://images.pexels.com/photos/3230214/pexels-photo-3230214.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1',
+                desc: ' Nuestra capacidad para diseñar equipos únicos que se adapten a los requisitos de cada cliente nos ha diferenciado de la competencia en este mercado. Incluso contamos con una flota especial y dedicada al servicio de grado alimenticio.',
+              }"
+            />
           </div>
         </div>
       </section>
