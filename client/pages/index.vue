@@ -6,7 +6,10 @@
       <Title>Cryotainer LNG - Liquid Natural Gas</Title>
     </Head>
 
-    <div class="flex h-screen w-full items-center justify-center bg-primary-900">
+    <div
+      style="background-image: url(/img/cryotainer-hero.jpg)"
+      class="flex h-screen w-full items-center justify-center bg-zinc-900/50 bg-cover bg-center"
+    >
       <div class="flex flex-col items-center">
         <div class="max-w-4xl">
           <h1 class="text-center font-headline text-6xl font-light uppercase text-white">
