@@ -1,14 +1,12 @@
-const colors = require("tailwindcss/colors")
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   content: [
-    'components/**/*.{vue,js}',
-    'layouts/**/*.vue',
-    'pages/**/*.vue',
-    'composables/**/*.{js,ts}',
-    'plugins/**/*.{js,ts}',
-    'App.{js,ts,vue}',
-    'app.{js,ts,vue}',
+    './index.html',
+    './src/App.vue',
+    './src/pages/**/*.{vue,js,ts,jsx,tsx}',
+    './src/layouts/**/*.{vue,js,ts,jsx,tsx}',
+    './src/components/**/*.{vue,js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
@@ -17,8 +15,8 @@ module.exports = {
       },
 
       colors: {
-        primary: colors.blue
-      }
+        primary: colors.blue,
+      },
     },
   },
   plugins: [],
