@@ -1,10 +1,10 @@
 <script setup lang="ts"></script>
 
 <template>
-  <footer class="bg-white px-8 pt-16">
+  <footer class="bg-white px-4 pt-16 lg:px-8">
     <div class="mx-auto flex w-full max-w-7xl flex-col">
-      <div class="flex gap-10">
-        <div class="w-full max-w-xs space-y-8">
+      <div class="flex flex-col gap-10 md:flex-row">
+        <div class="w-full space-y-8 md:max-w-xs">
           <RouterLink :to="{ name: 'home' }">
             <img src="/img/cryotainer-logo.png" class="block w-full max-w-[15rem]" alt="Logo Cryotainer" />
           </RouterLink>
@@ -16,7 +16,7 @@
           <TheSocialIcons />
         </div>
 
-        <div class="flex flex-1 gap-6">
+        <div class="flex flex-1 flex-col gap-10 lg:flex-row">
           <div class="footer-link-col">
             <span class="footer-subtitle">Sitio web</span>
 
@@ -51,12 +51,12 @@
 
       <div aria-hidden="true" class="mt-10 block h-px w-full bg-zinc-200"></div>
 
-      <div class="flex justify-between py-4">
-        <span class="text-sm text-zinc-400"
+      <div class="flex flex-col items-center justify-between gap-1 py-4 md:flex-row">
+        <span class="text-center text-sm text-zinc-400 md:text-left"
           >Copyright &copy; {{ new Date().getFullYear() }} Cryotainer LNG</span
         >
 
-        <span class="text-sm text-zinc-400"
+        <span class="text-center text-sm text-zinc-400 md:text-right"
           >Diseño y Desarrollo por
           <a
             href="https://chrisgvdev.com"
