@@ -31,8 +31,8 @@ const services = [
 
 <template>
   <main>
-    <section aria-label="Portada" class="flex h-[90vh] w-full items-center justify-center">
-      <div class="w-full max-w-3xl px-4 text-center text-zinc-700 lg:px-8">
+    <section aria-label="Portada" class="flex min-h-[90vh] w-full items-center justify-center">
+      <div class="w-full max-w-3xl px-4 py-24 text-center text-zinc-700 lg:px-8">
         <h1 class="font-headline text-3xl font-bold uppercase sm:text-5xl lg:text-6xl">
           Soluciones diseñadas para la industria mexicana
         </h1>
