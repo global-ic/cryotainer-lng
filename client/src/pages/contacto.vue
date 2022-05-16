@@ -57,5 +57,6 @@ a.method-value {
 <route lang="yaml">
 name: contact
 meta:
-  headerMode: dark
+  header:
+    color: dark
 </route>
