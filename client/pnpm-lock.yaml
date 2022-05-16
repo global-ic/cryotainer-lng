@@ -3,6 +3,8 @@ lockfileVersion: 5.4
 specifiers:
   '@antfu/eslint-config': ^0.23.0
   '@headlessui/vue': ^1.6.1
+  '@iconify-json/bx': ^1.1.2
+  '@iconify-json/ph': ^1.1.1
   '@types/node': ^17.0.33
   '@types/nprogress': ^0.2.0
   '@vitejs/plugin-vue': ^2.3.2
@@ -47,6 +49,8 @@ dependencies:
 devDependencies:
   '@antfu/eslint-config': 0.23.0_hcfsmds2fshutdssjqluwm76uu
   '@headlessui/vue': 1.6.1_vue@3.2.33
+  '@iconify-json/bx': 1.1.2
+  '@iconify-json/ph': 1.1.1
   '@types/node': 17.0.33
   '@types/nprogress': 0.2.0
   '@vitejs/plugin-vue': 2.3.2_vite@2.9.8+vue@3.2.33
@@ -259,6 +263,18 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: true
+
+  /@iconify-json/bx/1.1.2:
+    resolution: {integrity: sha512-aITMwliHaW8QrxAh6/hx1wkYAXWYR6iVYsAxerK3b5NpxuYvmfXWPgtpuQC7xaPbfab3Rxj0YJLJmA6WGy59rw==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
+  /@iconify-json/ph/1.1.1:
+    resolution: {integrity: sha512-sIHTY+c1F8x29BM49IqoccJ3T8mvVXPcrE4WOpJ3GsBaip2YqFJRYU60rw64UL6GEI13vWSD7NsZKq8ytTO87g==}
+    dependencies:
+      '@iconify/types': 1.1.0
     dev: true
 
   /@iconify/types/1.1.0:

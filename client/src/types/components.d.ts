@@ -5,9 +5,22 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    BxBxlInstagram: typeof import('~icons/bx/bxl-instagram')['default']
+    BxBxlWhatsapp: typeof import('~icons/bx/bxl-whatsapp')['default']
+    BxEnvelope: typeof import('~icons/bx/envelope')['default']
+    BxlEnvelope: typeof import('~icons/bx/l-envelope')['default']
+    BxlInstagram: typeof import('~icons/bx/l-instagram')['default']
+    BxlWhatsapp: typeof import('~icons/bx/l-whatsapp')['default']
+    BxWhatsapp: typeof import('~icons/bx/whatsapp')['default']
     HomeIndustry: typeof import('./../components/home/HomeIndustry.vue')['default']
+    PhEnvelopeSimpleOpenFill: typeof import('~icons/ph/envelope-simple-open-fill')['default']
+    PhFillMapPin: typeof import('~icons/ph/fill-map-pin')['default']
+    PhMapPin: typeof import('~icons/ph/map-pin')['default']
+    PhMapPinFill: typeof import('~icons/ph/map-pin-fill')['default']
+    PhPhoneFill: typeof import('~icons/ph/phone-fill')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TheFooter: typeof import('./../components/global/TheFooter.vue')['default']
     TheHeader: typeof import('./../components/global/TheHeader.vue')['default']
   }
 }
