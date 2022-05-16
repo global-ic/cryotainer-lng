@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     HomeIndustry: typeof import('./../components/home/HomeIndustry.vue')['default']
     HuiDialog: typeof import('@headlessui/vue')['Dialog']
     HuiDialogOverlay: typeof import('@headlessui/vue')['DialogOverlay']
+    HuiDialogPanel: typeof import('@headlessui/vue')['DialogPanel']
     HuiTransitionChild: typeof import('@headlessui/vue')['TransitionChild']
     HuiTransitionRoot: typeof import('@headlessui/vue')['TransitionRoot']
     PhEnvelopeSimpleOpenFill: typeof import('~icons/ph/envelope-simple-open-fill')['default']
