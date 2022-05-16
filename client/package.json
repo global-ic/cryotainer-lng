@@ -6,7 +6,7 @@
     "dev:host": "vite --host",
     "lint": "eslint .",
     "preview": "vite preview",
-    "preview-https": "serve public_html",
+    "preview-https": "serve dist",
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
