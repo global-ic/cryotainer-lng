@@ -46,7 +46,7 @@ const isDarkColor = computed(() => route.meta?.header?.color === 'dark' || false
       type="button"
       @click="$emit('openMobileMenu')"
       :class="[
-        'relative ml-3 rounded p-1 transition-colors hover:bg-zinc-400 hover:text-white lg:hidden',
+        'relative ml-3 rounded p-1 transition-colors hover:bg-primary-800 hover:text-white lg:hidden',
         isDarkColor || yScroll > SCROLL_ACTIVE ? 'text-zinc-800' : 'text-white',
       ]"
     >
