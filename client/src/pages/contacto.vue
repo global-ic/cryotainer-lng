@@ -18,10 +18,41 @@ useHead({ title: 'Cryotainer LNG - Contáctanos' });
         >
       </div>
 
-      <div class="mt-20">Medios</div>
+      <ul aria-label="Medios de contacto" class="mt-20 flex w-full max-w-sm flex-col space-y-4">
+        <li class="method-container">
+          <span class="method-name">Ubicación</span>
+          <span class="method-value">Guadalajara, Jalisco, México</span>
+        </li>
+        <li class="method-container">
+          <span class="method-name">Correo</span>
+          <a href="#" class="method-value">contacto@cryotainerlng.com</a>
+        </li>
+        <li class="method-container">
+          <span class="method-name">Teléfono</span>
+          <a href="#" class="method-value">+52 33 3954 2453</a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
+
+<style scoped>
+.method-container {
+  @apply flex justify-between gap-2;
+}
+
+.method-name {
+  @apply text-sm font-medium uppercase tracking-wider text-zinc-800;
+}
+
+.method-value {
+  @apply text-right text-zinc-700;
+}
+
+a.method-value {
+  @apply hover:text-zinc-500;
+}
+</style>
 
 <route lang="yaml">
 name: contact
