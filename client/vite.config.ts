@@ -39,6 +39,10 @@ export default defineConfig({
 
   build: { outDir: 'public_html' },
 
+  server: {
+    port: 8085,
+  },
+
   ssgOptions: {
     script: 'async',
     formatting: 'minify',
