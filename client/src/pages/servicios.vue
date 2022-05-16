@@ -12,19 +12,19 @@ const services = [
     title: 'Sistemas de ingeniería',
     description: 'Este es el espacio para la descipción',
     image:
-      'https://images.pexels.com/photos/785529/pexels-photo-785529.jpeg?auto=compress&cs=tinysrgb&w=1000&dpr=1',
+      'https://images.pexels.com/photos/3634730/pexels-photo-3634730.jpeg?auto=compress&cs=tinysrgb&w=1000&dpr=1',
   },
   {
     title: 'Estaciones móviles',
     description: 'Este es el espacio para la descipción',
     image:
-      'https://images.pexels.com/photos/785529/pexels-photo-785529.jpeg?auto=compress&cs=tinysrgb&w=1000&dpr=1',
+      'https://images.pexels.com/photos/799096/pexels-photo-799096.jpeg?auto=compress&cs=tinysrgb&w=1000&dpr=1',
   },
   {
     title: 'Terminales en puerto',
     description: 'Este es el espacio para la descipción',
     image:
-      'https://images.pexels.com/photos/785529/pexels-photo-785529.jpeg?auto=compress&cs=tinysrgb&w=1000&dpr=1',
+      'https://images.pexels.com/photos/1554646/pexels-photo-1554646.jpeg?auto=compress&cs=tinysrgb&w=1000&dpr=1',
   },
 ];
 </script>
