@@ -5,7 +5,9 @@
     <div class="mx-auto flex w-full max-w-7xl flex-col">
       <div class="flex gap-10">
         <div class="w-full max-w-xs space-y-8">
-          <img src="/img/cryotainer-logo.png" class="block w-full max-w-[15rem]" alt="Logo Cryotainer" />
+          <RouterLink :to="{ name: 'home' }">
+            <img src="/img/cryotainer-logo.png" class="block w-full max-w-[15rem]" alt="Logo Cryotainer" />
+          </RouterLink>
 
           <span class="block text-zinc-500"
             >Empresa de proyectos e instalaciones criogénicas de confianza.</span
