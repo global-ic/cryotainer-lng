@@ -37,6 +37,8 @@ export default defineConfig({
     Icons({ compiler: 'vue3', autoInstall: true }),
   ],
 
+  build: { outDir: 'public_html' },
+
   ssgOptions: {
     script: 'async',
     formatting: 'minify',
