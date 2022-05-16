@@ -4,6 +4,7 @@ import { NavigationItem } from '~/types';
 
 const route = useRoute();
 
+defineEmits(['openMobileMenu']);
 defineProps({
   navigation: { type: Array as PropType<NavigationItem[]>, required: true },
 });
@@ -18,19 +19,19 @@ const isDarkColor = computed(() => route.meta?.header?.color === 'dark' || false
   <header
     :class="[
       yScroll > SCROLL_ACTIVE && 'border-gray-200 bg-white/80 backdrop-blur-md backdrop-filter',
-      'fixed inset-x-0 top-0 z-20 flex items-center justify-between border-b border-transparent py-4 px-8 transition-all duration-300',
+      'fixed inset-x-0 top-0 z-20 flex items-center justify-between border-b border-transparent py-4 px-4 transition-all duration-300 lg:px-8',
     ]"
   >
     <RouterLink
       :to="{ name: 'home' }"
       :class="[
-        'font-headline text-2xl font-bold uppercase',
+        'font-headline text-xl font-bold uppercase md:text-2xl',
         isDarkColor || yScroll > SCROLL_ACTIVE ? 'text-zinc-800' : 'text-white',
       ]"
       >Cryotainer LNG</RouterLink
     >
 
-    <nav class="flex space-x-10">
+    <nav class="hidden space-x-10 lg:flex">
       <RouterLink
         v-for="item in navigation"
         :key="`ni-${item.name}`"
@@ -39,31 +40,18 @@ const isDarkColor = computed(() => route.meta?.header?.color === 'dark' || false
         :class="['nav-link', isDarkColor || yScroll > SCROLL_ACTIVE ? 'text-zinc-800' : 'text-white']"
         >{{ item.name }}</RouterLink
       >
-      <!-- <RouterLink
-        :to="{ name: 'about' }"
-        active-class="underline"
-        :class="['nav-link', isDarkColor || yScroll > SCROLL_ACTIVE ? 'text-zinc-800' : 'text-white']"
-        >Nosotros</RouterLink
-      >
-      <RouterLink
-        :to="{ name: 'gnl' }"
-        active-class="underline"
-        :class="['nav-link', isDarkColor || yScroll > SCROLL_ACTIVE ? 'text-zinc-800' : 'text-white']"
-        >GNL</RouterLink
-      >
-      <RouterLink
-        :to="{ name: 'services' }"
-        active-class="underline"
-        :class="['nav-link', isDarkColor || yScroll > SCROLL_ACTIVE ? 'text-zinc-800' : 'text-white']"
-        >Servicios</RouterLink
-      >
-      <RouterLink
-        :to="{ name: 'contact' }"
-        active-class="underline"
-        :class="['nav-link', isDarkColor || yScroll > SCROLL_ACTIVE ? 'text-zinc-800' : 'text-white']"
-        >Contacto</RouterLink
-      > -->
     </nav>
+
+    <button
+      type="button"
+      @click="$emit('openMobileMenu')"
+      :class="[
+        'relative ml-3 rounded p-1 transition-colors hover:bg-zinc-400 hover:text-white lg:hidden',
+        isDarkColor || yScroll > SCROLL_ACTIVE ? 'text-zinc-800' : 'text-white',
+      ]"
+    >
+      <PhListBold class="h-6 w-6" />
+    </button>
   </header>
 </template>
 

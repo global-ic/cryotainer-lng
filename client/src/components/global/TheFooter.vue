@@ -13,11 +13,7 @@
             >Empresa de proyectos e instalaciones criogénicas de confianza.</span
           >
 
-          <div aria-label="Redes sociales" class="flex space-x-6">
-            <a href="#"><BxEnvelope class="social-icon" /></a>
-            <a href="#"><BxBxlWhatsapp class="social-icon" /></a>
-            <a href="#"><BxBxlInstagram class="social-icon" /></a>
-          </div>
+          <TheSocialIcons />
         </div>
 
         <div class="flex flex-1 gap-6">
@@ -82,10 +78,6 @@
 </template>
 
 <style scoped>
-.social-icon {
-  @apply block h-6 w-6 text-zinc-400 hover:text-zinc-600;
-}
-
 .footer-link-col {
   @apply flex flex-1 flex-col items-start space-y-5;
 }
