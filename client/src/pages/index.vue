@@ -9,9 +9,11 @@ useHead({ title: 'Cryotainer LNG - Liquid Natural Gas' });
       style="background-image: url(/img/cryotainer-hero.jpg)"
       class="flex h-screen w-full items-center justify-center bg-zinc-900/50 bg-cover bg-center"
     >
-      <div class="flex flex-col items-center">
+      <div class="flex flex-col items-center px-4 lg:px-8">
         <div class="max-w-4xl">
-          <h1 class="text-center font-headline text-6xl font-light uppercase text-white">
+          <h1
+            class="text-center font-headline text-4xl font-light uppercase text-white md:text-5xl lg:text-6xl"
+          >
             Soluciones energéticas en <span class="font-bold">consumo de combustible</span>
           </h1>
         </div>
@@ -21,8 +23,12 @@ useHead({ title: 'Cryotainer LNG - Liquid Natural Gas' });
     </section>
 
     <section aria-label="Nosotros">
-      <div class="mx-auto flex h-screen w-full max-w-lg flex-col items-center justify-center gap-8">
-        <h2 class="text-center font-headline text-5xl font-bold uppercase text-zinc-800">
+      <div
+        class="mx-auto flex h-screen w-full max-w-lg flex-col items-center justify-center gap-4 px-4 md:gap-8 lg:px-8"
+      >
+        <h2
+          class="text-center font-headline text-3xl font-bold uppercase text-zinc-800 md:text-4xl lg:text-5xl"
+        >
           Especialistas en soluciones de Gas Natural
         </h2>
 
@@ -37,15 +43,17 @@ useHead({ title: 'Cryotainer LNG - Liquid Natural Gas' });
           </p>
         </div>
 
-        <RouterLink class="btn btn-outlined mt-8" :to="{ name: 'contact' }">Contáctanos</RouterLink>
+        <RouterLink class="btn btn-outlined" :to="{ name: 'contact' }">Contáctanos</RouterLink>
       </div>
     </section>
 
     <section aria-label="Servicios" class="flex h-screen items-center">
-      <div class="flex w-full items-center gap-8 px-6">
+      <div class="flex w-full flex-col items-center gap-8 px-4 lg:flex-row lg:px-8">
         <div class="max-w-xl">
-          <h3 class="font-headline text-4xl font-bold uppercase text-zinc-800">Nuestros Servicios</h3>
-          <p class="mt-2 text-xl font-light text-zinc-600">
+          <h3 class="font-headline text-3xl font-bold uppercase text-zinc-800 md:text-4xl">
+            Nuestros Servicios
+          </h3>
+          <p class="mt-2 font-light text-zinc-600 lg:text-xl">
             Desarrollamos todos nuestros proyectos cuidando cada detalle del mismo para entregar servicios de
             alta calidad que satisfacen las necesidades de nuestros clientes.
           </p>
@@ -57,39 +65,42 @@ useHead({ title: 'Cryotainer LNG - Liquid Natural Gas' });
           style="background-image: url(/img/alpha-cs-proyecto-fast-track-destacada.jpg)"
         >
           <div class="safe-zone-bg w-full px-6 pb-6 text-center">
-            <span class="font-headline text-5xl font-bold uppercase text-white">Instalación</span>
+            <span class="font-headline text-2xl font-bold uppercase text-white md:text-4xl lg:text-5xl"
+              >Instalación</span
+            >
           </div>
         </div>
       </div>
     </section>
 
-    <section aria-label="Gas Natural Licuado" class="h-screen p-8">
+    <section aria-label="Gas Natural Licuado" class="h-[70vh] p-4 md:h-screen lg:p-8">
       <div
         style="background-image: url(/img/cryotainer-gnl-ship.jpg)"
-        class="relative flex h-full w-full items-center justify-center overflow-hidden rounded-xl bg-cover bg-center"
+        class="relative flex h-full w-full items-center justify-center overflow-hidden rounded-xl bg-cover bg-center p-4 lg:p-8"
       >
         <div class="pointer-events-none absolute inset-0 z-0 bg-zinc-900 opacity-50"></div>
 
-        <div class="z-10 w-full max-w-xl space-y-8 text-center">
-          <h2 class="font-headline text-5xl font-bold uppercase text-white">Gas Natural Licuado (GNL)</h2>
+        <div class="z-10 w-full max-w-xl space-y-6 text-center md:space-y-8">
+          <h2 class="font-headline text-2xl font-bold uppercase text-white md:text-4xl lg:text-5xl">
+            Gas Natural Licuado (GNL)
+          </h2>
           <p class="text-lg text-zinc-100">
             Le demanda de gas natural está creciendo constantemente, dando oportunidad a un cambio ecológico
             para las energías en México… El Gas Natural Licuado (GNL).
           </p>
-          <RouterLink class="btn btn-outlined-white mt-6" :to="{ name: 'gnl' }">Aprende más</RouterLink>
+          <RouterLink class="btn btn-outlined-white" :to="{ name: 'gnl' }">Aprende más</RouterLink>
         </div>
       </div>
     </section>
 
-    <section aria-label="Industrias" class="mt-16 p-8">
+    <section aria-label="Industrias" class="mt-16 p-4 lg:p-8">
       <div class="mx-auto w-full max-w-7xl">
-        <h2 class="text-center font-headline text-4xl font-bold uppercase text-zinc-800">
+        <h2 class="text-center font-headline text-3xl font-bold uppercase text-zinc-800 md:text-4xl">
           Industrias en las que operamos
         </h2>
 
-        <div class="mt-10 flex gap-6">
+        <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           <HomeIndustry
-            class="flex-1"
             :info="{
               title: 'Energía y Minería',
               image:
@@ -99,7 +110,6 @@ useHead({ title: 'Cryotainer LNG - Liquid Natural Gas' });
           />
 
           <HomeIndustry
-            class="flex-1"
             :info="{
               title: 'Gases',
               image:
@@ -109,7 +119,6 @@ useHead({ title: 'Cryotainer LNG - Liquid Natural Gas' });
           />
 
           <HomeIndustry
-            class="flex-1"
             :info="{
               title: 'Alimentos y bebidas',
               image:
