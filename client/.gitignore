@@ -9,3 +9,5 @@ node_modules
 *.log
 public_html
 *.zip
+.env
+src/types/components.d.ts
