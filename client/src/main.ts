@@ -1,3 +1,5 @@
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { setupLayouts } from 'virtual:generated-layouts';
 import { ViteSSG } from 'vite-ssg';
 import '~/assets/css/tailwind.css'; // Tailwind CSS Styles
@@ -5,6 +7,7 @@ import generatedRoutes from '~pages';
 import App from './App.vue';
 
 const routes = setupLayouts(generatedRoutes);
+gsap.registerPlugin(ScrollTrigger);
 
 export const createApp = ViteSSG(
   App,

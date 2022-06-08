@@ -8,6 +8,7 @@ declare module '@vue/runtime-core' {
     BxBxlInstagram: typeof import('~icons/bx/bxl-instagram')['default']
     BxBxlWhatsapp: typeof import('~icons/bx/bxl-whatsapp')['default']
     BxEnvelope: typeof import('~icons/bx/envelope')['default']
+    HomeHeroSection: typeof import('./../components/home/HomeHeroSection.vue')['default']
     HomeIndustry: typeof import('./../components/home/HomeIndustry.vue')['default']
     HuiDialog: typeof import('@headlessui/vue')['Dialog']
     HuiDialogOverlay: typeof import('@headlessui/vue')['DialogOverlay']

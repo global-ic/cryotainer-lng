@@ -4,23 +4,7 @@ useHead({ title: 'Cryotainer LNG - Liquid Natural Gas' });
 
 <template>
   <main>
-    <section
-      aria-label="Portada"
-      style="background-image: url(/img/cryotainer-hero.jpg)"
-      class="flex h-screen w-full items-center justify-center bg-zinc-900/50 bg-cover bg-center"
-    >
-      <div class="flex flex-col items-center px-4 lg:px-8">
-        <div class="max-w-4xl">
-          <h1
-            class="text-center font-headline text-4xl font-light uppercase text-white md:text-5xl lg:text-6xl"
-          >
-            Soluciones energéticas en <span class="font-bold">consumo de combustible</span>
-          </h1>
-        </div>
-
-        <RouterLink class="btn btn-primary mt-8" :to="{ name: 'about' }">Sobre nosotros</RouterLink>
-      </div>
-    </section>
+    <HomeHeroSection />
 
     <section aria-label="Nosotros">
       <div
