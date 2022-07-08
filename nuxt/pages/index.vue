@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useHead({
+  title: 'Especialistas en Equipo Criogénico',
+});
+</script>
 
 <template>
   <main>
