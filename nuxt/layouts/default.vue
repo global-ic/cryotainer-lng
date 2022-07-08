@@ -26,6 +26,8 @@ function transitionAE() {
 
 <template>
   <div>
+    <Body class="bg-zinc-50" />
+
     <Teleport to="body">
       <div
         id="transition-bar"

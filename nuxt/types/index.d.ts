@@ -12,6 +12,12 @@ export type NavigationItem = {
   href?: string;
 };
 
+export interface HomeIndustry {
+  title: string;
+  image: string;
+  desc: string;
+}
+
 declare module '#app' {
   interface PageMeta {
     pageType?: string;
