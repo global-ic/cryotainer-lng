@@ -8,8 +8,8 @@ const heroSection = ref<HTMLElement>();
 onMounted(() => {
   const tl = gsap.timeline();
 
-  tl.to(heroSection.value!, {
-    opacity: 1,
+  tl.from(heroSection.value!, {
+    opacity: 0,
     delay: 0.5,
     duration: 1,
     ease: 'power2',
@@ -33,9 +33,13 @@ onMounted(() => {
   <section
     ref="heroSection"
     aria-label="Portada"
-    style="background-image: url(/img/cryotainer-hero.jpg)"
-    class="flex h-screen w-full transform items-center justify-center bg-zinc-900/50 bg-cover bg-center opacity-0"
+    class="relative flex h-screen w-full transform items-center justify-center bg-cover bg-center"
+    style="
+      background-image: url(https://images.pexels.com/photos/785529/pexels-photo-785529.jpeg?auto=compress&cs=tinysrgb&w=1000&dpr=2);
+    "
   >
+    <div class="absolute inset-0 bg-zinc-900/50" aria-hidden="true" />
+
     <div class="px-4 lg:px-8">
       <h1 class="text-center font-headline text-4xl font-light uppercase text-white md:text-5xl lg:text-6xl">
         <div class="overflow-hidden">
