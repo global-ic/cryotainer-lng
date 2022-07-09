@@ -18,7 +18,7 @@ const isDarkColor = computed(() => route.meta?.header?.color === 'dark' || false
 <template>
   <header
     :class="[
-      yScroll > SCROLL_ACTIVE && 'border-gray-200 bg-white',
+      yScroll > SCROLL_ACTIVE && 'border-gray-200 bg-white bg-opacity-60 backdrop-blur-xl backdrop-filter',
       'fixed inset-x-0 top-0 z-20 flex items-center justify-between border-b border-transparent py-4 px-4 transition-all duration-300 lg:px-8',
     ]"
   >
