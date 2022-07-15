@@ -33,7 +33,7 @@ onMounted(() => {
   <section
     ref="heroSection"
     aria-label="Portada"
-    class="relative flex h-screen w-full transform items-center justify-center bg-cover bg-center"
+    class="relative flex h-[80vh] w-full transform items-center justify-center bg-cover bg-center md:h-screen"
     style="
       background-image: url(https://images.pexels.com/photos/785529/pexels-photo-785529.jpeg?auto=compress&cs=tinysrgb&w=1000&dpr=2);
     "

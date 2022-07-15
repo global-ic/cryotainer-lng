@@ -8,10 +8,10 @@ const features = [
 </script>
 
 <template>
-  <section class="overflow-hidden">
-    <UiContainer class="grid grid-cols-2 items-center gap-8">
+  <section class="overflow-hidden py-8 md:py-0">
+    <UiContainer class="grid items-center gap-8 md:grid-cols-2 md:gap-0">
       <div>
-        <h2 class="font-headline text-4xl font-bold uppercase text-zinc-900">
+        <h2 class="font-headline text-3xl font-bold uppercase text-zinc-900 sm:text-4xl">
           Décadas de experiencia nos respaldan
         </h2>
 
@@ -19,11 +19,11 @@ const features = [
           <li v-for="feature in features" class="flex items-center">
             <div
               aria-hidden="true"
-              class="grid h-7 w-7 place-items-center rounded-full bg-primary-100 text-primary-500"
+              class="grid h-5 w-5 place-items-center rounded-full bg-primary-100 text-primary-500 sm:h-7 sm:w-7"
             >
-              <IconsUiCheck class="h-7 w-7" />
+              <IconsUiCheck class="h-5 w-5 sm:h-7 sm:w-7" />
             </div>
-            <span class="ml-3 text-lg text-zinc-500">{{ feature }}</span>
+            <span class="ml-3 text-zinc-500 sm:text-lg">{{ feature }}</span>
           </li>
         </ul>
 
@@ -33,14 +33,14 @@ const features = [
         </div>
       </div>
 
-      <div class="relative h-[45rem]">
+      <div class="relative h-80 md:h-[35rem] lg:h-[80vh]">
         <picture>
-          <source srcset="/img/webp/cryotainer-img-15.webp" type="image/webp" />
-          <source srcset="/img/cryotainer-img-15.jpg" type="image/jpeg" />
+          <source srcset="/img/webp/cryotainer-img-28.webp" type="image/webp" />
+          <source srcset="/img/cryotainer-img-28.jpg" type="image/jpeg" />
           <img
             src=""
-            alt="Camión con tanque GNL"
-            class="absolute h-full w-[50vw] max-w-none rounded-tl-xl object-cover"
+            alt="Tanque de GNL - Cryotainer LNG"
+            class="absolute h-full w-full rounded-xl object-cover md:left-[10%] md:rounded-b-none lg:w-[50vw] lg:max-w-none"
           />
         </picture>
       </div>
