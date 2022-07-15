@@ -5,7 +5,7 @@ useHead({
 </script>
 
 <template>
-  <main>
+  <main v-once>
     <HomeHeroSection />
     <HomeAboutSection />
     <HomeServicesSection />

@@ -8,7 +8,7 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="flex min-h-screen w-full flex-col-reverse gap-8 px-4 pt-24 pb-8 md:flex-row lg:px-8">
+  <div v-once class="flex min-h-screen w-full flex-col-reverse gap-8 px-4 pt-24 pb-8 md:flex-row lg:px-8">
     <img
       class="block aspect-video w-full rounded-xl object-cover md:aspect-auto md:w-1/2"
       src="https://images.pexels.com/photos/785529/pexels-photo-785529.jpeg?auto=compress&cs=tinysrgb&w=1000&dpr=1"

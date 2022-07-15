@@ -31,7 +31,7 @@ const services = [
 </script>
 
 <template>
-  <main>
+  <main v-once>
     <section aria-label="Portada" class="flex min-h-[90vh] w-full items-center justify-center">
       <div class="w-full max-w-3xl px-4 py-24 text-center text-zinc-700 lg:px-8">
         <h1 class="font-headline text-3xl font-bold uppercase sm:text-5xl lg:text-6xl">

@@ -3,7 +3,7 @@ useHead({ title: 'Sobre Nosotros' });
 </script>
 
 <template>
-  <main>
+  <main v-once>
     <AboutHeroSection />
     <AboutWhoAreWeSection />
     <AboutUsSection />
