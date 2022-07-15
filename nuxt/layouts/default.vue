@@ -26,7 +26,7 @@ function transitionAE() {
 
 <template>
   <div>
-    <Body class="bg-zinc-50" />
+    <Body class="bg-zinc-50 antialiased" />
 
     <Teleport to="body">
       <div

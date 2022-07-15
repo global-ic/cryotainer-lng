@@ -18,6 +18,12 @@ export interface HomeIndustry {
   desc: string;
 }
 
+export interface WhoAreWeFeature {
+  icon: any;
+  title: string;
+  description: string;
+}
+
 declare module '#app' {
   interface PageMeta {
     pageType?: string;

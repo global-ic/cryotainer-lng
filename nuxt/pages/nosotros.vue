@@ -5,5 +5,8 @@ useHead({ title: 'Sobre Nosotros' });
 <template>
   <main>
     <AboutHeroSection />
+    <AboutWhoAreWeSection />
+    <AboutUsSection />
+    <AboutCallToAction />
   </main>
 </template>
