@@ -21,6 +21,10 @@
 }
 
 @layer utilities {
+  .mini-title {
+    @apply font-semibold text-primary-700;
+  }
+
   .safe-zone-bg {
     position: relative;
     z-index: 10;
