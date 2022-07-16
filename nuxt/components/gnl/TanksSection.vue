@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ColumnsIcon from '~/components/icons/PhColumns.vue';
-import PlaceholderIcon from '~/components/icons/PhPlaceholder.vue';
-import ShieldCheckeredIcon from '~/components/icons/PhShieldCheckered.vue';
-import CrosshairIcon from '~/components/icons/PhCrosshair.vue';
-import FlameIcon from '~/components/icons/PhFlame.vue';
+import ColumnsIcon from '~icons/ph/columns';
+import CrosshairIcon from '~icons/ph/crosshair';
+import FlameIcon from '~icons/ph/flame';
+import PlaceholderIcon from '~icons/ph/placeholder';
+import ShieldCheckeredIcon from '~icons/ph/shield-checkered';
 
 const features = [
   {

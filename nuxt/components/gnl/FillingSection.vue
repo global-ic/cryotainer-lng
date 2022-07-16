@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import GasPumpIcon from '~icons/ph/gas-pump';
+</script>
 
 <template>
   <section class="overflow-hidden py-8 md:py-0">
@@ -8,7 +10,7 @@
           aria-hidden="true"
           class="flex h-12 w-12 items-center justify-center rounded-full border-8 border-primary-50 bg-primary-100 text-primary-600"
         >
-          <IconsPhGasPump class="h-6 w-6" />
+          <GasPumpIcon class="h-6 w-6" />
         </div>
 
         <h2 class="mt-6 font-headline text-3xl font-semibold uppercase text-zinc-900 sm:text-4xl">

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import MoneyIcon from '~/components/icons/PhMoney.vue';
-import ShieldCheckIcon from '~/components/icons/PhShieldCheck.vue';
-import TreeIcon from '~/components/icons/PhTree.vue';
+import MoneyIcon from '~icons/ph/money';
+import ShieldCheckIcon from '~icons/ph/shield-check';
+import TreeIcon from '~icons/ph/tree';
 
 const features = [
   {

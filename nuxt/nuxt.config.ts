@@ -1,7 +1,7 @@
 import { defineNuxtConfig } from 'nuxt';
 
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@vueuse/nuxt'],
+  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@vueuse/nuxt', 'unplugin-icons/nuxt'],
 
   app: {
     head: {

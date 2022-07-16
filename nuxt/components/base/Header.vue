@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { PropType } from 'vue';
 import { NavigationItem } from '~/types';
+import ListIcon from '~icons/ph/list-bold';
 
 const route = useRoute();
 
@@ -50,7 +51,7 @@ const isDarkColor = computed(() => route.meta?.header?.color === 'dark' || false
         isDarkColor || yScroll > SCROLL_ACTIVE ? 'text-zinc-800' : 'text-white',
       ]"
     >
-      <IconsPhListBold class="h-6 w-6" />
+      <ListIcon class="h-6 w-6" />
     </button>
   </header>
 </template>

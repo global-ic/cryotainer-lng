@@ -1,10 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import InstagramIcon from '~icons/bx/bxl-instagram';
+import WhatsappIcon from '~icons/bx/bxl-whatsapp';
+import EnvelopeIcon from '~icons/ph/envelope';
+</script>
 
 <template>
   <div aria-label="Redes sociales" class="flex space-x-6">
-    <a href="#"><IconsBxEnvelope class="social-icon" /></a>
-    <a href="#"><IconsBxBxlWhatsapp class="social-icon" /></a>
-    <a href="#"><IconsBxBxlInstagram class="social-icon" /></a>
+    <a href="#"><EnvelopeIcon class="social-icon" /></a>
+    <a href="#"><WhatsappIcon class="social-icon" /></a>
+    <a href="#"><InstagramIcon class="social-icon" /></a>
   </div>
 </template>
 

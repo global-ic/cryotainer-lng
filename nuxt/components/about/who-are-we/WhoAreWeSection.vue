@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { WhoAreWeFeature } from '~/types';
-import WrenchIcon from '~/components/icons/PhWrench.vue';
-import StackIcon from '~/components/icons/PhStack.vue';
-import SnowflakeIcon from '~/components/icons/PhSnowflake.vue';
-import TruckIcon from '~/components/icons/PhTruck.vue';
+import WrenchIcon from '~icons/ph/wrench';
+import StackIcon from '~icons/ph/stack';
+import SnowflakeIcon from '~icons/ph/snowflake';
+import TruckIcon from '~icons/ph/truck';
 
 const features: WhoAreWeFeature[] = [
   {

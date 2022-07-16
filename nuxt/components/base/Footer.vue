@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
 import type { NavigationItem } from '~/types';
+import EnvelopeIcon from '~icons/ph/envelope-simple-open-fill';
+import MapPinIcon from '~icons/ph/map-pin-fill';
+import PhoneIcon from '~icons/ph/phone-fill';
 
 defineProps({
   navigation: { type: Array as PropType<NavigationItem[]>, required: true },
@@ -36,7 +39,7 @@ defineProps({
             <span class="footer-subtitle">Contacto</span>
 
             <span aria-label="Ubicación" class="flex items-center gap-2 text-zinc-700">
-              <IconsPhMapPinFill class="h-5 w-5" /> Guadalajara, Jalisco, México
+              <MapPinIcon class="h-5 w-5" /> Guadalajara, Jalisco, México
             </span>
 
             <a
@@ -44,11 +47,11 @@ defineProps({
               href="mailto:contacto@cryotainerlng.com"
               class="footer-link flex items-center gap-2"
             >
-              <IconsPhEnvelopeSimpleOpenFill class="h-5 w-5" /> contacto@cryotainerlng.com
+              <EnvelopeIcon class="h-5 w-5" /> contacto@cryotainerlng.com
             </a>
 
             <a href="tel:+523339542453" aria-label="Teléfono" class="footer-link flex items-center gap-2">
-              <IconsPhPhoneFill class="h-5 w-5" /> +52 33 3954 2453
+              <PhoneIcon class="h-5 w-5" /> +52 33 3954 2453
             </a>
           </div>
         </div>

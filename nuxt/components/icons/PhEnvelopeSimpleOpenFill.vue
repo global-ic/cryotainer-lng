@@ -1,8 +1,0 @@
-<template>
-  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 256 256">
-    <path
-      fill="currentColor"
-      d="m228.4 89.3l-96-64a8.2 8.2 0 0 0-8.8 0l-96 64A7.9 7.9 0 0 0 24 96v104a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V96a7.9 7.9 0 0 0-3.6-6.7ZM40 200v-88.5l65.9 47a7.9 7.9 0 0 0 4.6 1.5h35a7.9 7.9 0 0 0 4.6-1.5l65.9-47V200Z"
-    />
-  </svg>
-</template>
