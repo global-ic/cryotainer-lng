@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue';
+import CloseIcon from '~icons/ph/x';
 import type { PropType } from 'vue';
 
 defineProps({
@@ -55,7 +56,7 @@ defineEmits(['close']);
                 class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               >
                 <span class="sr-only">{{ closeSrLabel }}</span>
-                <PhX class="h-6 w-6 text-white" aria-hidden="true" />
+                <CloseIcon class="h-6 w-6 text-white" aria-hidden="true" />
               </button>
             </div>
           </TransitionChild>
