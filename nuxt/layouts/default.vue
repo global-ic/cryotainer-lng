@@ -6,7 +6,6 @@ const nav = computed<NavigationItem[]>(() => [
   { name: 'Inicio', route: '/' },
   { name: 'Nosotros', route: { name: 'nosotros' } },
   { name: 'GNL', route: { name: 'gnl' } },
-  { name: 'Servicios', route: { name: 'servicios' } },
   { name: 'Contacto', route: { name: 'contacto' } },
 ]);
 

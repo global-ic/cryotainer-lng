@@ -11,7 +11,6 @@
           Desarrollamos todos nuestros proyectos cuidando cada detalle del mismo para entregar servicios de
           alta calidad que satisfacen las necesidades de nuestros clientes.
         </p>
-        <NuxtLink class="btn btn-outlined mt-6" :to="{ name: 'servicios' }">Conoce más</NuxtLink>
       </div>
 
       <div
