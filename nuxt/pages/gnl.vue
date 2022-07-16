@@ -9,5 +9,6 @@ definePageMeta({ header: { color: 'dark' } });
     <GnlAboutSection />
     <GnlTransportSection />
     <GnlTanksSection />
+    <GnlFillingSection />
   </main>
 </template>
