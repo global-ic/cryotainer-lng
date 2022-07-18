@@ -9,11 +9,11 @@ definePageMeta({
 
 <template>
   <div v-once class="flex min-h-screen w-full flex-col-reverse gap-8 px-4 pt-24 pb-8 md:flex-row lg:px-8">
-    <img
-      class="block aspect-video w-full rounded-xl object-cover md:aspect-auto md:w-1/2"
-      src="https://images.pexels.com/photos/785529/pexels-photo-785529.jpeg?auto=compress&cs=tinysrgb&w=1000&dpr=1"
-      alt=""
-    />
+    <picture class="aspect-video w-full md:aspect-auto md:w-1/2">
+      <source srcset="/img/webp/cryotainer-img-21.webp" type="image/webp" />
+      <source srcset="/img/cryotainer-img-21.jpg" type="image/jpeg" />
+      <img class="block h-full w-full rounded-xl object-cover" src="" alt="" />
+    </picture>
 
     <div class="flex flex-1 flex-col items-center justify-center">
       <div class="max-w-sm text-center text-zinc-700">
