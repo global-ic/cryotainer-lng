@@ -4,7 +4,12 @@
   <section class="pt-32">
     <UiContainer>
       <div class="mx-auto flex max-w-5xl flex-col items-center">
-        <img class="h-8 sm:h-10" src="/img/cryotainer-logo.png" alt="Logo Cryotainer LNG" />
+        <picture>
+          <source srcset="/img/webp/cryotainer-logo.webp" type="image/webp" />
+          <source srcset="/img/cryotainer-logo.png" type="image/png" />
+          <img class="h-8 sm:h-10" src="" alt="Logo Cryotainer LNG" />
+        </picture>
+
         <h1 class="mt-4 text-center font-headline text-4xl font-semibold uppercase text-zinc-900 md:text-6xl">
           Gas Natural Licuado
         </h1>

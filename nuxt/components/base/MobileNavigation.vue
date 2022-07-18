@@ -12,7 +12,11 @@ defineEmits(['close']);
 <template>
   <div class="w-full overflow-y-auto bg-white pt-5 pb-4">
     <div class="flex flex-shrink-0 select-none items-center space-x-2 px-4">
-      <img class="w-3/5" alt="Logotipo Cryotainer" src="/img/cryotainer-logo.png" />
+      <picture>
+        <source srcset="/img/webp/cryotainer-logo.webp" type="image/webp" />
+        <source srcset="/img/cryotainer-logo.png" type="image/png" />
+        <img class="w-3/5" alt="Logotipo Cryotainer" src="" />
+      </picture>
     </div>
 
     <nav aria-label="Navegación" class="mt-5">

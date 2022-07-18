@@ -16,7 +16,11 @@ defineProps({
       <div class="flex flex-col gap-10 md:flex-row">
         <div class="w-full space-y-8 md:max-w-xs">
           <NuxtLink to="/">
-            <img src="/img/cryotainer-logo.png" class="block w-full max-w-[15rem]" alt="Logo Cryotainer" />
+            <picture>
+              <source srcset="/img/webp/cryotainer-logo.webp" type="image/webp" />
+              <source srcset="/img/cryotainer-logo.png" type="image/png" />
+              <img src="" class="block w-full max-w-[15rem]" alt="Logo Cryotainer" />
+            </picture>
           </NuxtLink>
 
           <span class="block text-zinc-500"
