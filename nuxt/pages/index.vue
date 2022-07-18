@@ -9,7 +9,7 @@ useHead({
     <HomeHeroSection />
     <HomeAboutSection />
     <HomeServicesSection />
+    <HomeValuesSection />
     <HomeGnlSection />
-    <HomeIndustriesSection />
   </main>
 </template>
