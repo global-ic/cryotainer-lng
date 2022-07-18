@@ -23,7 +23,7 @@ const features = [
 </script>
 
 <template>
-  <section class="py-24">
+  <section class="overflow-x-hidden py-24">
     <UiContainer>
       <div class="max-w-3xl">
         <h2 class="mini-title">Gas Natural Licuado (GNL)</h2>
