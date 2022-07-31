@@ -7,12 +7,12 @@ const features = [
   {
     icon: MoneyIcon,
     title: 'Económico',
-    body: 'El proceso de licuefacción condensa el volumen de gas hasta 600 veces, lo que permite un transporte más fácil a áreas donde no existen gasoductos de gas natural.',
+    body: 'Dentro de los combustibles fósiles está un 30% por debajo del precio promedio del diésel.',
   },
   {
     icon: ShieldCheckIcon,
     title: 'Seguro',
-    body: 'El GNL es un gas natural no tóxico, no corrosivo e inodoro, lo que reduce los riesgos de su manipulación y lo vuelve en una alternativa más segura.',
+    body: 'Al ser mas ligero que el aire en casi de fuga se disipará mas rápido, no contamina los mantos freáticos.',
   },
   {
     icon: TreeIcon,
@@ -31,8 +31,8 @@ const features = [
           >La mejor alternativa al GNC y Diesel</span
         >
         <p class="mt-5 text-lg text-zinc-500 md:text-xl">
-          El gas natural licuado, o GNL, es un tipo de gas natural no tóxico, no corrosivo e inodoro. Durante
-          la licuefacción, el GNL se obtiene enfriando el gas a -162° (-260°F).
+          El gas natural licuado, o GNL, es un combustible no tóxico, no corrosivo e inodoro. Durante la
+          licuefacción, el GNL se enfría hasta -162° (-260°F).
         </p>
       </div>
 

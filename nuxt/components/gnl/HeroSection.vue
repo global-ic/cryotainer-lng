@@ -14,8 +14,7 @@
           Gas Natural Licuado
         </h1>
         <p class="mt-6 max-w-3xl text-center text-lg text-zinc-500 md:text-xl">
-          Conoce más sobre el GNL. La mejor alternativa para el suministro de tanques vehiculares que es más
-          económico, seguro y ecológico.
+          El mejor combustible para recorrer largas distancias siendo mas económico, seguro y ecológico.
         </p>
       </div>
 

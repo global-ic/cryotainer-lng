@@ -43,7 +43,7 @@ defineProps({
             <span class="footer-subtitle">Contacto</span>
 
             <span aria-label="Ubicación" class="flex items-center gap-2 text-zinc-700">
-              <MapPinIcon class="h-5 w-5" /> Guadalajara, Jalisco, México
+              <MapPinIcon class="h-5 w-5" /> México
             </span>
 
             <a

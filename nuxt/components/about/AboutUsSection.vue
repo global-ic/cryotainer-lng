@@ -11,8 +11,7 @@
       </div>
 
       <p class="flex-1 text-lg text-zinc-500 sm:text-xl">
-        En Cryotainer somos proveedores de equipos y servicios de primer nivel en la industria de gasoductos
-        virtuales.<br /><br />
+        Somos proveedores de equipos y servicios de primer nivel en gas natural licuado y gases del aire.<br /><br />
         Nuestra misión es ser el eslabón mas fuerte en la cadena de valor de gasoductos virtuales.
       </p>
     </UiContainer>

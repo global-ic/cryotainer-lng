@@ -9,9 +9,7 @@ const features: WhoAreWeFeature[] = [
   {
     icon: WrenchIcon,
     title: 'Mantenimiento de equipo',
-    description: `<p>Proporcionamos mantenimiento de equipo criogénico.</p>
-
-    <ul class="mt-2 list-inside list-disc">
+    description: `<ul class="list-inside list-disc">
       <li>Bombas externas y sumergibles</li>
       <li>Pipas</li>
       <li>Autotanques</li>
@@ -19,8 +17,14 @@ const features: WhoAreWeFeature[] = [
   },
   {
     icon: StackIcon,
-    title: 'Diseño de estaciones',
-    description: `<p>Contamos con el servicio de diseño de Estaciones de Regasificación para Gas Natural y gases del Aire</p>`,
+    title: 'Ingeniería',
+    description: `
+      <p>Diseño de Estaciones de: </p>
+      <ul class="mt-2 list-inside list-disc">
+        <li>Almacenamiento</li>
+        <li>Regasificación </li>
+        <li>Despacho de LNG y Gases del Aire</li>
+      </ul>`,
   },
   {
     icon: SnowflakeIcon,
@@ -47,9 +51,8 @@ const features: WhoAreWeFeature[] = [
   <section class="overflow-x-hidden py-12 md:py-24">
     <UiContainer>
       <div class="max-w-3xl">
-        <span class="font-semibold text-primary-700">Nuestros servicios</span>
-        <h2 class="mt-3 font-headline text-3xl font-semibold uppercase text-zinc-900 sm:text-4xl">
-          Principales proveedores de valor en gasoductos virtuales
+        <h2 class="font-headline text-3xl font-semibold uppercase text-zinc-900 sm:text-4xl">
+          Proveedor confiable en la cadena de valor de gasoductos virtuales
         </h2>
         <p class="mt-5 text-lg text-zinc-500 sm:text-xl">
           Somos proveedores de equipos y servicios de primer nivel en la industria de gasoductos virtuales.
@@ -59,9 +62,13 @@ const features: WhoAreWeFeature[] = [
       </div>
 
       <div class="mt-12 grid items-center gap-16 md:mt-16 lg:grid-cols-2 lg:gap-0">
-        <ul class="grid gap-x-8 gap-y-8 md:grid-cols-2 md:gap-y-12">
-          <AboutWhoAreWeFeatureListing v-for="feature in features" :feature="feature" />
-        </ul>
+        <div>
+          <span class="font-semibold text-primary-700">Nuestros servicios</span>
+
+          <ul class="mt-8 grid gap-x-8 gap-y-8 md:grid-cols-2 md:gap-y-12">
+            <AboutWhoAreWeFeatureListing v-for="feature in features" :feature="feature" />
+          </ul>
+        </div>
 
         <div class="relative h-80 md:h-[35rem] lg:h-[80vh]">
           <picture>

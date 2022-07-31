@@ -8,22 +8,22 @@ const values = [
   {
     icon: StarIcon,
     title: 'Estándares de calidad',
-    desc: 'Diseñamos instalaciones de seguridad que cumplen con las regulaciones gubernamentales y los códigos NFPA.',
+    desc: 'Nuestros equipos cumplen códigos ASME, GB y otros estándares internacionales.',
   },
   {
     icon: HourglassIcon,
     title: 'Tiempos de entrega',
-    desc: 'Desarrollamos la ingeniería y construcción de nuestros proyectos en períodos de tiempo cortos.',
+    desc: 'Proveemos soluciones con los tiempos de entrega mas cortos del mercado.',
   },
   {
     icon: UsersIcon,
-    title: 'Presencia y asesorías',
-    desc: 'No todos nuestros clientes son expertos, en algunos casos podemos sugerir opciones y ayudar a desarrollar sus proyectos.',
+    title: 'Consultorías',
+    desc: 'Asesoramos y acompañamos en todo momento del desarrollo del proyecto.',
   },
   {
     icon: BookmarkIcon,
     title: 'Todo en un solo lugar',
-    desc: 'Proveemos todos los equipos y accesorios necesarios como tanques de  almacenamiento, vaporizadores, válvulas, bombas.',
+    desc: 'Proveemos los equipos necesarios para el excelente funcionamiento y operación.',
   },
 ];
 </script>
@@ -37,7 +37,7 @@ const values = [
           Buscamos eficiencia y satisfacción en todo momento
         </h2>
         <p class="mt-5 text-lg text-zinc-500 md:text-xl">
-          En Cryotianer LNG tomamos la eficiencia de nuestros servicios y la satisfacción de nuestros clientes
+          En Cryotainer LNG tomamos la eficiencia de nuestros servicios y la satisfacción de nuestros clientes
           seriamente y trabajamos por cumplir con todos sus requerimientos y especificaciones.
         </p>
       </div>

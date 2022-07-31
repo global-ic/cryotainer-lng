@@ -9,18 +9,23 @@ definePageMeta({
 
 <template>
   <div v-once class="flex min-h-screen w-full flex-col-reverse gap-8 px-4 pt-24 pb-8 md:flex-row lg:px-8">
-    <picture class="aspect-video w-full md:aspect-auto md:w-1/2">
-      <source srcset="/img/webp/cryotainer-img-21.webp" type="image/webp" />
-      <source srcset="/img/cryotainer-img-21.jpg" type="image/jpeg" />
-      <img class="block h-full w-full rounded-xl object-cover" src="" alt="" />
-    </picture>
+    <div class="flex max-h-[80vh] w-full flex-col justify-center gap-8 overflow-hidden md:w-1/2">
+      <picture class="h-2/5">
+        <source srcset="/img/webp/cryotainer-img-2.webp" type="image/webp" />
+        <source srcset="/img/cryotainer-img-2.jpg" type="image/jpeg" />
+        <img class="block h-full w-full rounded-xl object-cover" src="" />
+      </picture>
+
+      <picture class="h-2/5">
+        <source srcset="/img/webp/cryotainer-img-3.webp" type="image/webp" />
+        <source srcset="/img/cryotainer-img-3.jpg" type="image/jpeg" />
+        <img class="block h-full w-full rounded-xl object-cover" src="" />
+      </picture>
+    </div>
 
     <div class="flex flex-1 flex-col items-center justify-center">
       <div class="max-w-sm text-center text-zinc-700">
-        <h1 class="font-headline text-4xl font-bold uppercase md:text-6xl">Ponte en contacto</h1>
-        <span class="mt-2 block text-sm md:mt-4"
-          >Si tienes algún proyecto o idea y requieres asesoría técnica no dudes en contactarnos.</span
-        >
+        <h1 class="font-headline text-4xl font-bold uppercase md:text-6xl">Contacto</h1>
       </div>
 
       <ul aria-label="Medios de contacto" class="mt-12 flex w-full max-w-sm flex-col space-y-4 md:mt-20">

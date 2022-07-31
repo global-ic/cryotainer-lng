@@ -9,12 +9,12 @@ const features = [
   {
     icon: ColumnsIcon,
     title: 'Construcción de doble pared',
-    body: 'La construcción de nuestros tanques consiste en capas de acero inoxidable para ambos el interior y el exterior de los mismos.',
+    body: 'Un tanque dentro de otro tanque garantizando la menor tasa de vaporización.',
   },
   {
     icon: PlaceholderIcon,
     title: 'Materiales de aislamiento al vacío',
-    body: 'Todos nuestros materiales están implementados para prevenir que sean combustibles, lo que aumenta su seguridad.',
+    body: 'Diseñados con super aislamiento y con un vacío menor a 10 micrones en caliente, llegando a 1 en estado frío.',
   },
   {
     icon: ShieldCheckeredIcon,
@@ -23,13 +23,13 @@ const features = [
   },
   {
     icon: CrosshairIcon,
-    title: 'Robusto contra vandalismo',
+    title: 'Seguro contra vandalismo',
     body: 'Equipamos nuestros tanques con la mejor protección anti-vandalismo, probados contra disparos de .44 magnum.',
   },
   {
     icon: FlameIcon,
     title: 'Prueba de exposición',
-    body: 'Nuestros tanques están probados y sin efecto contra exposición al fuego de gasolina y al fuego del mismo GNL.',
+    body: 'Nuestros tanques están probados y sin efecto contra exposición al fuego.',
   },
 ];
 </script>
@@ -40,7 +40,7 @@ const features = [
       <div class="mx-auto flex max-w-3xl flex-col items-center">
         <h2 class="mini-title text-center">Tanques de GNL</h2>
         <span class="mt-3 text-center font-headline text-4xl font-semibold uppercase text-zinc-900"
-          >Empacado para dar confianza</span
+          >Almacenado para dar confianza</span
         >
         <p class="mt-5 text-center text-lg text-zinc-500 md:text-xl">
           Todos nuestros tanques de GNL están diseñados para brindar la mayor calidad y confianza para

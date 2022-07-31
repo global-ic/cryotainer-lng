@@ -3,7 +3,6 @@ const features = [
   'Servicios y repuestos',
   'Válvulas en inventario rápido',
   'Presencia y asesoramiento a personal',
-  'Todo en un solo lugar',
 ];
 </script>
 
@@ -12,7 +11,7 @@ const features = [
     <UiContainer class="grid items-center gap-8 md:grid-cols-2 md:gap-0">
       <div>
         <h2 class="font-headline text-3xl font-bold uppercase text-zinc-900 sm:text-4xl">
-          Décadas de experiencia nos respaldan
+          Nuestros servicios
         </h2>
 
         <ul class="mt-8 grid gap-5">
@@ -26,6 +25,8 @@ const features = [
             <span class="ml-3 text-zinc-500 sm:text-lg">{{ feature }}</span>
           </li>
         </ul>
+
+        <p class="mt-6 text-zinc-500 sm:text-lg">Todo en un solo lugar.</p>
 
         <div class="mt-8 flex gap-2">
           <NuxtLink :to="{ name: 'contacto' }" class="btn btn-primary">Contáctanos</NuxtLink>
