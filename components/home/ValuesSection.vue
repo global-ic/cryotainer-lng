@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { gsap } from 'gsap';
 import BookmarkIcon from '~icons/ph/bookmark';
 import HourglassIcon from '~icons/ph/hourglass-medium';
 import StarIcon from '~icons/ph/star';
@@ -26,6 +27,20 @@ const values = [
     desc: 'Proveemos los equipos necesarios para el excelente funcionamiento y operación.',
   },
 ];
+
+const cards = ref<HTMLElement[]>([]);
+const cardsWrapper = ref<HTMLElement>();
+
+onMounted(() => {
+  gsap.from(cards.value, {
+    y: 50,
+    opacity: 0,
+    duration: 1.5,
+    ease: 'expo',
+    scrollTrigger: { trigger: cardsWrapper.value, start: 'top 70%' },
+    stagger: 0.2,
+  });
+});
 </script>
 
 <template>
@@ -42,8 +57,8 @@ const values = [
         </p>
       </div>
 
-      <ul class="mt-16 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-        <li v-for="value in values" class="rounded-xl bg-zinc-100 p-6">
+      <ul ref="cardsWrapper" class="mt-16 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <li ref="cards" v-for="value in values" class="rounded-xl bg-zinc-100 p-6">
           <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-500">
             <component :is="value.icon" class="h-6 w-6 text-white" />
           </div>
