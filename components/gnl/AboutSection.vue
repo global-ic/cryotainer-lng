@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { gsap } from 'gsap';
 import MoneyIcon from '~icons/ph/money';
 import ShieldCheckIcon from '~icons/ph/shield-check';
 import TreeIcon from '~icons/ph/tree';
@@ -20,6 +21,20 @@ const features = [
     body: 'Distinguido como uno de los combustibles fósiles más limpios disponibles, el GNL es una alternativa confiable y respetuosa con el medio ambiente al gas natural.',
   },
 ];
+
+const cards = ref<HTMLElement[]>([]);
+const cardsWrapper = ref<HTMLElement>();
+
+onMounted(() => {
+  gsap.from(cards.value, {
+    x: -50,
+    opacity: 0,
+    duration: 1.5,
+    ease: 'expo',
+    scrollTrigger: { trigger: cardsWrapper.value, start: 'top 70%' },
+    stagger: 0.2,
+  });
+});
 </script>
 
 <template>
@@ -36,9 +51,9 @@ const features = [
         </p>
       </div>
 
-      <div class="mt-8 grid items-center gap-x-16 gap-y-8 md:mt-16 md:grid-cols-2">
+      <div ref="cardsWrapper" class="mt-8 grid items-center gap-x-16 gap-y-8 md:mt-16 md:grid-cols-2">
         <ul class="flex flex-col space-y-6 md:space-y-12">
-          <li v-for="feature in features" class="flex flex-col xs:flex-row xs:space-x-4">
+          <li ref="cards" v-for="feature in features" class="flex flex-col xs:flex-row xs:space-x-4">
             <div
               aria-hidden="true"
               class="flex h-12 w-12 items-center justify-center rounded-full border-8 border-primary-50 bg-primary-100 text-primary-600"
