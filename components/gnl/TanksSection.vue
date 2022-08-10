@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { gsap } from 'gsap';
 import ColumnsIcon from '~icons/ph/columns';
 import CrosshairIcon from '~icons/ph/crosshair';
 import FlameIcon from '~icons/ph/flame';
@@ -32,6 +33,34 @@ const features = [
     body: 'Nuestros tanques están probados y sin efecto contra exposición al fuego.',
   },
 ];
+
+const imgCover = ref<HTMLElement>();
+const mainImg = ref<HTMLImageElement>();
+const cards = ref<HTMLElement[]>([]);
+const cardsWrapper = ref<HTMLElement>();
+
+onMounted(() => {
+  const tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top 90%' } });
+  tl.to(imgCover.value, {
+    scaleX: 0,
+    duration: 1.5,
+    ease: 'expo.inOut',
+  });
+
+  tl.from(mainImg.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
+
+  tl.from(
+    cards.value,
+    {
+      y: 50,
+      opacity: 0,
+      duration: 1.5,
+      ease: 'expo',
+      stagger: 0.1,
+    },
+    '>-0.5'
+  );
+});
 </script>
 
 <template>
@@ -48,18 +77,27 @@ const features = [
         </p>
       </div>
 
-      <picture>
-        <source srcset="/img/webp/cryotainer-img-32.webp" type="image/webp" />
-        <source srcset="/img/cryotainer-img-32.jpg" type="image/jpeg" />
-        <img
-          src=""
-          alt="Camiones siendo cargados con GNL"
-          class="mt-16 max-h-[30rem] w-full rounded-xl object-cover sm:h-[60vh]"
-        />
-      </picture>
+      <div class="relative mt-16 overflow-hidden rounded-xl">
+        <picture>
+          <source srcset="/img/webp/cryotainer-img-32.webp" type="image/webp" />
+          <source srcset="/img/cryotainer-img-32.jpg" type="image/jpeg" />
+          <img
+            src=""
+            ref="mainImg"
+            alt="Camiones siendo cargados con GNL"
+            class="max-h-[30rem] w-full origin-top transform object-cover sm:h-[60vh]"
+          />
+        </picture>
 
-      <ul class="mt-16 flex flex-wrap justify-center gap-y-8 md:gap-y-16">
-        <li v-for="feature in features" class="flex flex-col items-center sm:w-1/2 sm:px-4 lg:w-1/3">
+        <div ref="imgCover" class="absolute top-0 left-0 h-full w-full origin-right bg-gray-50"></div>
+      </div>
+
+      <ul ref="cardsWrapper" class="mt-16 flex flex-wrap justify-center gap-y-8 md:gap-y-16">
+        <li
+          ref="cards"
+          v-for="feature in features"
+          class="flex flex-col items-center sm:w-1/2 sm:px-4 lg:w-1/3"
+        >
           <div
             aria-hidden="true"
             class="flex h-12 w-12 items-center justify-center rounded-full border-8 border-primary-50 bg-primary-100 text-primary-600"
