@@ -1,0 +1,11 @@
+### Redirect WWW to non-WWW
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www.(.*)$
+RewriteRule ^(.*)$ http://%1/$1 [L,R=301]
+
+### Force HTTPS
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+REWRITERULE ^(.*)$ http://nuxtwebsite/$1 [P]
