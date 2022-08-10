@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { breakpointsTailwind } from '@vueuse/core';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { NavigationItem } from '~/types';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const nav = computed<NavigationItem[]>(() => [
   { name: 'Inicio', route: '/' },
