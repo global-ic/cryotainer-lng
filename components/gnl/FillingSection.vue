@@ -8,7 +8,7 @@ const cards = ref<HTMLElement[]>([]);
 const cardsWrapper = ref<HTMLElement>();
 
 onMounted(() => {
-  const tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top 90%' } });
+  const tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top center', markers: true } });
   tl.to(imgCover.value, {
     scaleX: 0,
     duration: 2,

@@ -5,7 +5,7 @@ const imgCover = ref<HTMLElement>();
 const mainImg = ref<HTMLImageElement>();
 
 onMounted(() => {
-  const tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top 90%' } });
+  const tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top 80%' } });
   tl.to(imgCover.value, {
     width: 0,
     duration: 1.5,
