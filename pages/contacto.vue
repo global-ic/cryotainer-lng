@@ -1,26 +1,69 @@
 <script setup lang="ts">
+import { gsap } from 'gsap';
+
 useHead({ title: 'Contáctanos' });
 definePageMeta({
   header: {
     color: 'dark',
   },
 });
+
+const coverTop = ref<HTMLElement>();
+const imgTop = ref<HTMLImageElement>();
+const coverBottom = ref<HTMLElement>();
+const imgBottom = ref<HTMLImageElement>();
+
+onMounted(() => {
+  const tl = gsap.timeline();
+
+  tl.to(
+    coverTop.value,
+    {
+      height: 0,
+      duration: 1.5,
+      ease: 'expo.inOut',
+    },
+    'start'
+  );
+
+  tl.from(imgTop.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
+
+  tl.to(
+    coverBottom.value,
+    {
+      width: 0,
+      duration: 1.5,
+      ease: 'expo.inOut',
+    },
+    '<'
+  );
+
+  tl.from(imgBottom.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
+});
 </script>
 
 <template>
   <div v-once class="flex min-h-screen w-full flex-col-reverse gap-8 px-4 pt-24 pb-8 md:flex-row lg:px-8">
     <div class="flex max-h-[80vh] w-full flex-col justify-center gap-8 overflow-hidden md:w-1/2">
-      <picture class="h-2/5">
-        <source srcset="/img/webp/cryotainer-img-2.webp" type="image/webp" />
-        <source srcset="/img/cryotainer-img-2.jpg" type="image/jpeg" />
-        <img class="block h-full w-full rounded-xl object-cover" src="" />
-      </picture>
+      <div class="relative h-2/5 overflow-hidden rounded-xl">
+        <picture>
+          <source srcset="/img/webp/cryotainer-img-2.webp" type="image/webp" />
+          <source srcset="/img/cryotainer-img-2.jpg" type="image/jpeg" />
+          <img ref="imgTop" class="block h-full w-full origin-center transform object-cover" src="" />
+        </picture>
 
-      <picture class="h-2/5">
-        <source srcset="/img/webp/cryotainer-img-3.webp" type="image/webp" />
-        <source srcset="/img/cryotainer-img-3.jpg" type="image/jpeg" />
-        <img class="block h-full w-full rounded-xl object-cover" src="" />
-      </picture>
+        <div ref="coverTop" class="absolute top-0 left-0 h-full w-full origin-left bg-gray-50"></div>
+      </div>
+
+      <div class="relative h-2/5 overflow-hidden rounded-xl">
+        <picture>
+          <source srcset="/img/webp/cryotainer-img-3.webp" type="image/webp" />
+          <source srcset="/img/cryotainer-img-3.jpg" type="image/jpeg" />
+          <img ref="imgBottom" class="block h-full w-full origin-center transform object-cover" src="" />
+        </picture>
+
+        <div ref="coverBottom" class="absolute top-0 left-0 h-full w-full origin-left bg-gray-50"></div>
+      </div>
     </div>
 
     <div class="flex flex-1 flex-col items-center justify-center">
