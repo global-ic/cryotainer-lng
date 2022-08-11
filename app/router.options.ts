@@ -6,8 +6,8 @@ export default <RouterConfig>{
       setTimeout(() => {
         if (savedPos) resolve(savedPos);
         if (to.hash) resolve({ el: to.hash, behavior: 'smooth', top: 120 });
-        resolve({ behavior: 'smooth', top: 0 });
-      }, 150);
+        resolve({ top: 0 });
+      }, 200);
     });
   },
 };
