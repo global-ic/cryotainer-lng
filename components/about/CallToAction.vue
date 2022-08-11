@@ -1,9 +1,25 @@
 <script setup lang="ts">
+import { gsap } from 'gsap';
+
 const features = [
   'Servicios y repuestos',
   'Válvulas en inventario rápido',
   'Presencia y asesoramiento a personal',
 ];
+
+const imgCover = ref<HTMLElement>();
+const mainImg = ref<HTMLImageElement>();
+
+onMounted(() => {
+  const tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top center' } });
+  tl.to(imgCover.value, {
+    scaleX: 0,
+    duration: 2,
+    ease: 'expo.inOut',
+  });
+
+  tl.from(mainImg.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
+});
 </script>
 
 <template>
@@ -35,15 +51,25 @@ const features = [
       </div>
 
       <div class="relative h-80 md:h-[35rem] lg:h-[80vh]">
-        <picture>
-          <source srcset="/img/webp/cryotainer-img-28.webp" type="image/webp" />
-          <source srcset="/img/cryotainer-img-28.jpg" type="image/jpeg" />
-          <img
-            src=""
-            alt="Tanque de GNL - Cryotainer LNG"
-            class="absolute h-full w-full rounded-xl object-cover md:left-[10%] md:rounded-b-none lg:w-[50vw] lg:max-w-none"
-          />
-        </picture>
+        <div
+          class="absolute h-full w-full overflow-hidden rounded-xl md:left-[10%] md:rounded-b-none lg:w-[50vw]"
+        >
+          <picture>
+            <source srcset="/img/webp/cryotainer-img-28.webp" type="image/webp" />
+            <source srcset="/img/cryotainer-img-28.jpg" type="image/jpeg" />
+            <img
+              src=""
+              ref="mainImg"
+              alt="Tanque de GNL por Cryotainer"
+              class="h-full w-full origin-center transform object-cover lg:max-w-none"
+            />
+          </picture>
+        </div>
+
+        <div
+          ref="imgCover"
+          class="absolute top-0 left-0 h-full w-full origin-right bg-gray-50 md:left-[10%] lg:w-[50vw]"
+        ></div>
       </div>
     </UiContainer>
   </section>

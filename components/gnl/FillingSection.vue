@@ -4,8 +4,6 @@ import GasPumpIcon from '~icons/ph/gas-pump';
 
 const imgCover = ref<HTMLElement>();
 const mainImg = ref<HTMLImageElement>();
-const cards = ref<HTMLElement[]>([]);
-const cardsWrapper = ref<HTMLElement>();
 
 onMounted(() => {
   const tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top center' } });
