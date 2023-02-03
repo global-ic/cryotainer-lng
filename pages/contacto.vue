@@ -80,10 +80,6 @@ onMounted(() => {
           <span class="method-name">Correo</span>
           <a href="#" class="method-value">contacto@cryotainerlng.com</a>
         </li>
-        <li class="method-container">
-          <span class="method-name">Teléfono</span>
-          <a href="#" class="method-value">+52 33 3954 2453</a>
-        </li>
       </ul>
     </div>
   </div>

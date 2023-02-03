@@ -49,13 +49,8 @@ defineProps({
             <a
               aria-label="Correo electrónico"
               href="mailto:contacto@cryotainerlng.com"
-              class="footer-link flex items-center gap-2"
-            >
+              class="footer-link flex items-center gap-2">
               <EnvelopeIcon class="h-5 w-5" /> contacto@cryotainerlng.com
-            </a>
-
-            <a href="tel:+523339542453" aria-label="Teléfono" class="footer-link flex items-center gap-2">
-              <PhoneIcon class="h-5 w-5" /> +52 33 3954 2453
             </a>
           </div>
         </div>
