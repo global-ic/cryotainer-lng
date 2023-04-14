@@ -22,9 +22,9 @@ function createReveal() {
 
   tl = gsap.timeline();
 
-  tl.to(coverTop.value, { height: 0, duration: 1.5, ease: 'expo.inOut' }, 'start');
+  tl.from(coverTop.value, { scaleY: 1, duration: 1.5, ease: 'expo.inOut' }, 'start');
   tl.from(imgTop.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
-  tl.to(coverBottom.value, { width: 0, duration: 1.5, ease: 'expo.inOut' }, '<');
+  tl.from(coverBottom.value, { scaleX: 1, duration: 1.5, ease: 'expo.inOut' }, '<');
   tl.from(imgBottom.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
 }
 
@@ -57,7 +57,11 @@ onBeforeUnmount(() => {
           <img ref="imgTop" class="block h-full w-full origin-center transform object-cover" src="" />
         </picture>
 
-        <div ref="coverTop" class="absolute top-0 left-0 h-full w-full origin-left bg-gray-50"></div>
+        <div
+          ref="coverTop"
+          style="transform: scaleY(0)"
+          class="absolute top-0 left-0 h-full w-full origin-top bg-gray-50"
+        ></div>
       </div>
 
       <div class="relative h-2/5 overflow-hidden rounded-xl">
@@ -67,7 +71,11 @@ onBeforeUnmount(() => {
           <img ref="imgBottom" class="block h-full w-full origin-center transform object-cover" src="" />
         </picture>
 
-        <div ref="coverBottom" class="absolute top-0 left-0 h-full w-full origin-left bg-gray-50"></div>
+        <div
+          ref="coverBottom"
+          style="transform: scaleX(0)"
+          class="absolute top-0 left-0 h-full w-full origin-left bg-gray-50"
+        ></div>
       </div>
     </div>
 
