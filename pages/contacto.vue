@@ -33,11 +33,11 @@ onMounted(async () => {
 
   await nextTick();
   await nextTick();
-  const tl = createReveal();
+  createReveal();
 
   if (getTransition) {
     const transition = getTransition();
-    if (transition.timeline && transition.isAnimating.value) transition.timeline.add(tl, '-=0.8');
+    if (transition.timeline && transition.isAnimating.value) transition.timeline.add(tl!, '-=0.8');
   }
 });
 
