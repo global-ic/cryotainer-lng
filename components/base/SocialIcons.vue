@@ -1,10 +1,8 @@
-<script setup lang="ts">
-import EnvelopeIcon from '~icons/ph/envelope';
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div aria-label="Redes sociales" class="flex space-x-6">
-    <a href="#"><EnvelopeIcon class="social-icon" /></a>
+    <a href="mailto:contacto@cryotainerlng.com"><Icon name="ph:envelope" class="social-icon" /></a>
   </div>
 </template>
 

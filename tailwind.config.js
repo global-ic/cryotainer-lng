@@ -8,7 +8,6 @@ module.exports = {
     './components/**/*.{vue,js,ts,jsx,tsx}',
     './composables/**/*.{vue,js,ts,jsx,tsx}',
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {

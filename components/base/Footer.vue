@@ -1,13 +1,7 @@
 <script setup lang="ts">
-import type { PropType } from 'vue';
 import type { NavigationItem } from '~/types';
-import EnvelopeIcon from '~icons/ph/envelope-simple-open-fill';
-import MapPinIcon from '~icons/ph/map-pin-fill';
-import PhoneIcon from '~icons/ph/phone-fill';
 
-defineProps({
-  navigation: { type: Array as PropType<NavigationItem[]>, required: true },
-});
+defineProps({ navigation: { type: Array as PropType<NavigationItem[]>, required: true } });
 </script>
 
 <template>
@@ -43,14 +37,15 @@ defineProps({
             <span class="footer-subtitle">Contacto</span>
 
             <span aria-label="Ubicación" class="flex items-center gap-2 text-zinc-700">
-              <MapPinIcon class="h-5 w-5" /> México
+              <Icon name="ph:map-pin-fill" class="h-5 w-5" /> México
             </span>
 
             <a
               aria-label="Correo electrónico"
               href="mailto:contacto@cryotainerlng.com"
-              class="footer-link flex items-center gap-2">
-              <EnvelopeIcon class="h-5 w-5" /> contacto@cryotainerlng.com
+              class="footer-link flex items-center gap-2"
+            >
+              <Icon name="ph:envelope-simple-open-fill" class="h-5 w-5" /> contacto@cryotainerlng.com
             </a>
           </div>
         </div>

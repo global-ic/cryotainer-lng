@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import type { WhoAreWeFeature } from '~/types';
-import WrenchIcon from '~icons/ph/wrench';
-import StackIcon from '~icons/ph/stack';
-import SnowflakeIcon from '~icons/ph/snowflake';
-import TruckIcon from '~icons/ph/truck';
 import { gsap } from 'gsap';
+import type { WhoAreWeFeature } from '~/types';
 
 const features: WhoAreWeFeature[] = [
   {
-    icon: WrenchIcon,
+    icon: 'ph:wrench',
     title: 'Mantenimiento de equipo',
     description: `<ul class="list-inside list-disc">
       <li>Bombas externas y sumergibles</li>
@@ -17,7 +13,7 @@ const features: WhoAreWeFeature[] = [
     </ul>`,
   },
   {
-    icon: StackIcon,
+    icon: 'ph:stack',
     title: 'Ingeniería',
     description: `
       <p>Diseño de Estaciones de: </p>
@@ -28,7 +24,7 @@ const features: WhoAreWeFeature[] = [
       </ul>`,
   },
   {
-    icon: SnowflakeIcon,
+    icon: 'ph:snowflake',
     title: 'Venta de equipo criogénico',
     description: `<ul class="list-inside list-disc">
       <li>Isocontenedores</li>
@@ -39,7 +35,7 @@ const features: WhoAreWeFeature[] = [
     </ul>`,
   },
   {
-    icon: TruckIcon,
+    icon: 'ph:truck',
     title: 'Renta de equipo criogénico',
     description: `<ul class="list-inside list-disc">
       <li>Isocontenedores</li>
@@ -49,12 +45,18 @@ const features: WhoAreWeFeature[] = [
   },
 ];
 
-const imgCover = ref<HTMLElement>();
-const mainImg = ref<HTMLImageElement>();
-const featSection = ref<HTMLElement>();
-const featuresWrapper = ref<HTMLElement>();
+const wrapperEl = ref<HTMLElement | null>(null);
+const imgCover = ref<HTMLElement | null>(null);
+const mainImg = ref<HTMLImageElement | null>(null);
+const featSection = ref<HTMLElement | null>(null);
+const featuresWrapper = ref<HTMLElement | null>(null);
 
-onMounted(() => {
+let tl: gsap.core.Timeline | null = null;
+
+function createReveal() {
+  // Only create the timeline once
+  if (!!tl) return;
+
   gsap.from(featuresWrapper.value, {
     y: 100,
     opacity: 0,
@@ -63,19 +65,21 @@ onMounted(() => {
     scrollTrigger: { trigger: featSection.value, start: 'top 70%' },
   });
 
-  const tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top 90%' } });
-  tl.to(imgCover.value, {
-    width: 0,
-    duration: 2,
-    ease: 'expo.inOut',
-  });
-
+  tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top 90%' } });
+  tl.to(imgCover.value, { width: 0, duration: 2, ease: 'expo.inOut' });
   tl.from(mainImg.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
+}
+
+const isVisible = useElementVisibility(wrapperEl);
+watchOnce(isVisible, (value) => value && createReveal());
+
+onBeforeUnmount(() => {
+  tl?.kill();
 });
 </script>
 
 <template>
-  <section class="overflow-x-hidden py-12 md:py-24">
+  <section ref="wrapperEl" class="overflow-x-hidden py-12 md:py-24">
     <UiContainer>
       <div class="max-w-3xl">
         <h2 class="font-headline text-3xl font-semibold uppercase text-zinc-900 sm:text-4xl">

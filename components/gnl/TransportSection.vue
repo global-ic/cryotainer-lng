@@ -1,23 +1,31 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 
-const imgCover = ref<HTMLElement>();
-const mainImg = ref<HTMLImageElement>();
+const imgCover = ref<HTMLElement | null>(null);
+const wrapperEl = ref<HTMLElement | null>(null);
+const mainImg = ref<HTMLImageElement | null>(null);
 
-onMounted(() => {
-  const tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top 80%' } });
-  tl.to(imgCover.value, {
-    width: 0,
-    duration: 1.5,
-    ease: 'expo.inOut',
-  });
+let tl: gsap.core.Timeline | null = null;
 
+function createReveal() {
+  // Only create the timeline once
+  if (!!tl) return;
+
+  tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top 80%' } });
+  tl.to(imgCover.value, { width: 0, duration: 1.5, ease: 'expo.inOut' });
   tl.from(mainImg.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
+}
+
+const isVisible = useElementVisibility(wrapperEl);
+watchOnce(isVisible, (value) => value && createReveal());
+
+onBeforeUnmount(() => {
+  tl?.kill();
 });
 </script>
 
 <template>
-  <section class="py-24">
+  <section ref="wrapperEl" class="py-24">
     <UiContainer>
       <div class="flex flex-col gap-8 md:flex-row lg:gap-16">
         <div class="w-full md:w-1/2 xl:w-full xl:max-w-3xl">

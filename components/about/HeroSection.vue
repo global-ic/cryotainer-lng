@@ -1,31 +1,33 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 
-const line1 = ref<HTMLSpanElement>();
-const line2 = ref<HTMLSpanElement>();
-const heroSection = ref<HTMLElement>();
+const line1 = ref<HTMLSpanElement | null>(null);
+const line2 = ref<HTMLSpanElement | null>(null);
+const heroSection = ref<HTMLElement | null>(null);
 
-onMounted(() => {
-  const tl = gsap.timeline();
+const getTransition = inject(transitionsKey, undefined, false);
 
-  tl.from(heroSection.value!, {
-    opacity: 0,
-    delay: 0.5,
-    duration: 1,
-    ease: 'power2',
+function createReveal() {
+  const tl = gsap.timeline({
+    onComplete() {
+      tl.revert();
+    },
   });
 
-  tl.from(
-    [line1.value, line2.value],
-    {
-      y: 500,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.1,
-      ease: 'power2',
-    },
-    '-=0.75'
-  );
+  tl.from([line1.value, line2.value], { y: 10, opacity: 0, duration: 1, stagger: 0.1, ease: 'back(4)' });
+
+  return tl;
+}
+
+onMounted(() => {
+  if (process.server) return;
+
+  const tl = createReveal();
+
+  if (getTransition) {
+    const transition = getTransition();
+    if (transition.timeline && transition.isAnimating.value) transition.timeline.add(tl, '-=0.8');
+  }
 });
 </script>
 
@@ -49,12 +51,8 @@ onMounted(() => {
 
     <div class="px-4 lg:px-8">
       <h1 class="text-center font-headline text-4xl font-light uppercase text-white md:text-5xl lg:text-6xl">
-        <div class="overflow-hidden">
-          <span ref="line1" class="block">Impulsamos el uso de</span>
-        </div>
-        <div class="overflow-hidden">
-          <span ref="line2" class="block font-bold">combustibles alternativos</span>
-        </div>
+        <span ref="line1" class="block">Impulsamos el uso de</span>
+        <span ref="line2" class="block font-bold">combustibles alternativos</span>
       </h1>
     </div>
   </section>

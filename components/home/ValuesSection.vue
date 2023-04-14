@@ -1,50 +1,59 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
-import BookmarkIcon from '~icons/ph/bookmark';
-import HourglassIcon from '~icons/ph/hourglass-medium';
-import StarIcon from '~icons/ph/star';
-import UsersIcon from '~icons/ph/users';
 
 const values = [
   {
-    icon: StarIcon,
+    icon: 'ph:star',
     title: 'Estándares de calidad',
     desc: 'Nuestros equipos cumplen códigos ASME, GB y otros estándares internacionales.',
   },
   {
-    icon: HourglassIcon,
+    icon: 'ph:hourglass-medium',
     title: 'Tiempos de entrega',
     desc: 'Proveemos soluciones con los tiempos de entrega mas cortos del mercado.',
   },
   {
-    icon: UsersIcon,
+    icon: 'ph:users',
     title: 'Consultorías',
     desc: 'Asesoramos y acompañamos en todo momento del desarrollo del proyecto.',
   },
   {
-    icon: BookmarkIcon,
+    icon: 'ph:bookmark',
     title: 'Todo en un solo lugar',
     desc: 'Proveemos los equipos necesarios para el excelente funcionamiento y operación.',
   },
 ];
 
+const wrapperEl = ref<HTMLElement | null>(null);
 const cards = ref<HTMLElement[]>([]);
-const cardsWrapper = ref<HTMLElement>();
+const cardsWrapper = ref<HTMLElement | null>(null);
 
-onMounted(() => {
+let tl: gsap.core.Timeline | null = null;
+
+function createReveal() {
+  // Only create the timeline once
+  if (!!tl) return;
+
   gsap.from(cards.value, {
     y: 50,
     opacity: 0,
     duration: 1.5,
     ease: 'expo',
     scrollTrigger: { trigger: cardsWrapper.value, start: 'top 70%' },
-    stagger: 0.2,
+    stagger: 0.1,
   });
+}
+
+const isVisible = useElementVisibility(wrapperEl);
+watchOnce(isVisible, (value) => value && createReveal());
+
+onBeforeUnmount(() => {
+  tl?.kill();
 });
 </script>
 
 <template>
-  <section class="overflow-x-hidden py-12 md:py-24">
+  <section ref="wrapperEl" class="overflow-x-hidden py-12 md:py-24">
     <UiContainer>
       <div class="max-w-3xl">
         <span class="font-semibold text-primary-700">Valores y compromiso</span>
@@ -60,7 +69,7 @@ onMounted(() => {
       <ul ref="cardsWrapper" class="mt-16 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
         <li ref="cards" v-for="value in values" class="rounded-xl bg-zinc-100 p-6">
           <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-500">
-            <component :is="value.icon" class="h-6 w-6 text-white" />
+            <Icon :name="value.icon" class="h-6 w-6 text-white" />
           </div>
 
           <div class="mt-24">

@@ -1,14 +1,10 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 import type { WhoAreWeFeature } from '~/types';
-import SnowflakeIcon from '~icons/ph/snowflake';
-import StackIcon from '~icons/ph/stack';
-import TruckIcon from '~icons/ph/truck';
-import WrenchIcon from '~icons/ph/wrench';
 
 const features: WhoAreWeFeature[] = [
   {
-    icon: WrenchIcon,
+    icon: 'ph:wrench',
     title: 'Mantenimiento de equipo',
     description: `<p>Proporcionamos mantenimiento de equipo criogénico.</p>
 
@@ -19,12 +15,12 @@ const features: WhoAreWeFeature[] = [
     </ul>`,
   },
   {
-    icon: StackIcon,
+    icon: 'ph:stack',
     title: 'Diseño de estaciones',
     description: `<p>Contamos con el servicio de diseño de Estaciones de Regasificación para Gas Natural y gases del Aire</p>`,
   },
   {
-    icon: SnowflakeIcon,
+    icon: 'ph:snowflake',
     title: 'Venta de equipo criogénico',
     description: `<ul class="list-inside list-disc">
       <li>Isocontenedores</li>
@@ -35,7 +31,7 @@ const features: WhoAreWeFeature[] = [
     </ul>`,
   },
   {
-    icon: TruckIcon,
+    icon: 'ph:truck',
     title: 'Renta de equipo criogénico',
     description: `<ul class="list-inside list-disc">
       <li>Isocontenedores</li>
@@ -45,23 +41,31 @@ const features: WhoAreWeFeature[] = [
   },
 ];
 
-const imgCover = ref<HTMLElement>();
-const mainImg = ref<HTMLImageElement>();
+const wrapperEl = ref<HTMLElement | null>(null);
+const imgCover = ref<HTMLElement | null>(null);
+const mainImg = ref<HTMLImageElement | null>(null);
 
-onMounted(() => {
-  const tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top 90%' } });
-  tl.to(imgCover.value, {
-    width: 0,
-    duration: 2,
-    ease: 'expo.inOut',
-  });
+let tl: gsap.core.Timeline | null = null;
 
-  tl.from(mainImg.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
+function createReveal() {
+  // Only create the timeline once
+  if (!!tl) return;
+
+  tl = gsap.timeline({ scrollTrigger: { trigger: wrapperEl.value, start: '30% 90%' } });
+  tl.to(imgCover.value, { scaleX: 0, duration: 2, ease: 'expo.inOut' });
+  tl.from(mainImg.value, { scale: 1.5, duration: 1.5, opacity: 0, ease: 'expo' }, '<0.5');
+}
+
+const isVisible = useElementVisibility(wrapperEl);
+watchOnce(isVisible, (value) => value && createReveal());
+
+onBeforeUnmount(() => {
+  tl?.kill();
 });
 </script>
 
 <template>
-  <section class="overflow-x-hidden py-12 md:py-24">
+  <section ref="wrapperEl" class="overflow-x-hidden py-12 md:py-24">
     <UiContainer>
       <div class="max-w-3xl">
         <span class="font-semibold text-primary-700">¿Quiénes somos?</span>
@@ -95,7 +99,7 @@ onMounted(() => {
 
           <div
             ref="imgCover"
-            class="absolute top-0 left-0 h-full w-full origin-left bg-gray-50 md:left-[10%] lg:w-[50vw]"
+            class="absolute top-0 left-0 h-full w-full origin-right bg-gray-50 md:left-[10%] lg:w-[50vw]"
           ></div>
         </div>
       </div>

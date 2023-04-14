@@ -1,33 +1,39 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 
-const imgCover = ref<HTMLElement>();
-const headline = ref<HTMLElement>();
-const supporting = ref<HTMLElement>();
-const mainImg = ref<HTMLImageElement>();
+const logoEl = ref<HTMLElement | null>(null);
+const imgCover = ref<HTMLElement | null>(null);
+const headline = ref<HTMLElement | null>(null);
+const supporting = ref<HTMLElement | null>(null);
+const mainImg = ref<HTMLImageElement | null>(null);
 
-onMounted(() => {
+const getTransition = inject(transitionsKey, undefined, false);
+
+function createReveal() {
   const tl = gsap.timeline();
 
-  tl.from([headline.value, supporting.value], {
-    y: 50,
+  tl.from([logoEl.value, headline.value, supporting.value], {
+    y: 10,
     opacity: 0,
-    duration: 1.75,
-    ease: 'expo.inOut',
     stagger: 0.1,
+    duration: 1,
+    ease: 'back(4)',
   });
 
-  tl.to(
-    imgCover.value,
-    {
-      height: 0,
-      duration: 1.5,
-      ease: 'expo.inOut',
-    },
-    '>-1'
-  );
-
+  tl.from(imgCover.value, { scaleY: 1, duration: 1.5, ease: 'expo.inOut' }, '>-1');
   tl.from(mainImg.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
+
+  return tl;
+}
+
+onMounted(() => {
+  if (process.server) return;
+  const tl = createReveal();
+
+  if (getTransition) {
+    const transition = getTransition();
+    if (transition.timeline && transition.isAnimating.value) transition.timeline.add(tl, '-=0.5');
+  }
 });
 </script>
 
@@ -38,7 +44,7 @@ onMounted(() => {
         <picture>
           <source srcset="/img/webp/cryotainer-logo.webp" type="image/webp" />
           <source srcset="/img/cryotainer-logo.png" type="image/png" />
-          <img class="h-8 sm:h-10" src="" alt="Logo Cryotainer LNG" />
+          <img ref="logoEl" class="h-8 sm:h-10" src="" alt="Logo Cryotainer LNG" />
         </picture>
 
         <h1
@@ -64,7 +70,11 @@ onMounted(() => {
           />
         </picture>
 
-        <div ref="imgCover" class="absolute top-0 left-0 h-full w-full origin-left bg-gray-50"></div>
+        <div
+          ref="imgCover"
+          style="transform: scaleY(0)"
+          class="absolute top-0 left-0 h-full w-full origin-top bg-gray-50"
+        ></div>
       </div>
     </UiContainer>
   </section>

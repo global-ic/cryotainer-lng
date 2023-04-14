@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HomeIndustry } from '~/types';
+import type { HomeIndustry } from '~/types';
 
 const industries: HomeIndustry[] = [
   {

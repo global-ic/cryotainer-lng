@@ -1,28 +1,33 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 
-const line1 = ref<HTMLSpanElement>();
-const line2 = ref<HTMLSpanElement>();
+const line1 = ref<HTMLSpanElement | null>(null);
+const line2 = ref<HTMLSpanElement | null>(null);
+
+const getTransition = inject(transitionsKey, undefined, false);
+
+function createReveal() {
+  const tl = gsap.timeline({
+    onComplete() {
+      tl.revert();
+    },
+  });
+
+  tl.from([line1.value, line2.value], { y: 10, opacity: 0, duration: 1, stagger: 0.1, ease: 'back(4)' });
+  tl.from('.hero-link', { opacity: 0, duration: 0.5, ease: 'power2' });
+
+  return tl;
+}
 
 onMounted(() => {
-  const tl = gsap.timeline();
+  if (process.server) return;
 
-  tl.fromTo(
-    [line1.value, line2.value],
-    {
-      y: 500,
-      opacity: 0,
-    },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      stagger: 0.1,
-      ease: 'power2',
-    }
-  );
+  const tl = createReveal();
 
-  tl.from('.hero-link', { opacity: 0, duration: 0.5, ease: 'power2' });
+  if (getTransition) {
+    const transition = getTransition();
+    if (transition.timeline && transition.isAnimating.value) transition.timeline.add(tl, '-=0.8');
+  }
 });
 </script>
 
@@ -45,16 +50,12 @@ onMounted(() => {
         <h1
           class="text-center font-headline text-4xl font-light uppercase text-white md:text-5xl lg:text-6xl"
         >
-          <div class="overflow-hidden">
-            <span ref="line1" class="block">Especialistas en</span>
-          </div>
-          <div class="overflow-hidden">
-            <span ref="line2" class="block font-bold">equipo criogénico</span>
-          </div>
+          <span ref="line1" class="block">Especialistas en</span>
+          <span ref="line2" class="block font-bold">equipo criogénico</span>
         </h1>
       </div>
 
-      <NuxtLink class="hero-link btn btn-primary mt-8" :to="{ name: 'nosotros' }">Sobre nosotros</NuxtLink>
+      <NuxtLink class="hero-link btn btn-primary mt-8" to="/nosotros">Sobre nosotros</NuxtLink>
     </div>
   </section>
 </template>

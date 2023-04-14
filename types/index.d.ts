@@ -1,15 +1,11 @@
-import { type ViteSSGContext } from 'vite-ssg';
-import { FunctionalComponent } from 'vue';
 import { RouteLocationRaw } from 'vue-router';
-
-export type UserModule = (ctx: ViteSSGContext) => void;
 
 export type NavigationItem = {
   name: string;
-  route?: RouteLocationRaw;
-  icon?: FunctionalComponent;
-  isVisible?: boolean;
+  icon?: string;
   href?: string;
+  isVisible?: boolean;
+  route?: RouteLocationRaw;
 };
 
 export interface HomeIndustry {
@@ -23,11 +19,3 @@ export interface WhoAreWeFeature {
   title: string;
   description: string;
 }
-
-declare module '#app' {
-  interface PageMeta {
-    pageType?: string;
-  }
-}
-
-export {};

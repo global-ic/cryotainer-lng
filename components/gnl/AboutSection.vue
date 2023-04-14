@@ -1,44 +1,51 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
-import MoneyIcon from '~icons/ph/money';
-import ShieldCheckIcon from '~icons/ph/shield-check';
-import TreeIcon from '~icons/ph/tree';
 
 const features = [
   {
-    icon: MoneyIcon,
+    icon: 'ph:money',
     title: 'Económico',
     body: 'Dentro de los combustibles fósiles está un 30% por debajo del precio promedio del diésel.',
   },
   {
-    icon: ShieldCheckIcon,
+    icon: 'ph:shield-check',
     title: 'Seguro',
     body: 'Al ser mas ligero que el aire en casi de fuga se disipará mas rápido, no contamina los mantos freáticos.',
   },
   {
-    icon: TreeIcon,
+    icon: 'ph:tree',
     title: 'Ecológico',
     body: 'Distinguido como uno de los combustibles fósiles más limpios disponibles, el GNL es una alternativa confiable y respetuosa con el medio ambiente al gas natural.',
   },
 ];
 
 const cards = ref<HTMLElement[]>([]);
-const cardsWrapper = ref<HTMLElement>();
+const wrapperEl = ref<HTMLElement | null>(null);
+const cardsWrapper = ref<HTMLElement | null>(null);
 
-onMounted(() => {
+const hasPlayed = ref(false);
+
+function createReveal() {
+  // Only create the timeline once
+  if (hasPlayed.value) return;
+  hasPlayed.value = true;
+
   gsap.from(cards.value, {
     x: -50,
     opacity: 0,
-    duration: 1.5,
     ease: 'expo',
-    scrollTrigger: { trigger: cardsWrapper.value, start: 'top 70%' },
     stagger: 0.2,
+    duration: 1.5,
+    scrollTrigger: { trigger: cardsWrapper.value, start: 'top 70%' },
   });
-});
+}
+
+const isVisible = useElementVisibility(wrapperEl);
+watchOnce(isVisible, (value) => value && createReveal());
 </script>
 
 <template>
-  <section class="py-24">
+  <section ref="wrapperEl" class="py-24">
     <UiContainer>
       <div class="max-w-3xl">
         <h2 class="mini-title">¿Qué es el GNL?</h2>
@@ -58,7 +65,7 @@ onMounted(() => {
               aria-hidden="true"
               class="flex h-12 w-12 items-center justify-center rounded-full border-8 border-primary-50 bg-primary-100 text-primary-600"
             >
-              <component :is="feature.icon" class="h-6 w-6" />
+              <Icon :name="feature.icon" class="h-6 w-6" />
             </div>
 
             <div class="mt-2 flex-1 space-y-2">

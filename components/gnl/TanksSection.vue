@@ -1,70 +1,63 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
-import ColumnsIcon from '~icons/ph/columns';
-import CrosshairIcon from '~icons/ph/crosshair';
-import FlameIcon from '~icons/ph/flame';
-import PlaceholderIcon from '~icons/ph/placeholder';
-import ShieldCheckeredIcon from '~icons/ph/shield-checkered';
 
 const features = [
   {
-    icon: ColumnsIcon,
+    icon: 'ph:columns',
     title: 'Construcción de doble pared',
     body: 'Un tanque dentro de otro tanque garantizando la menor tasa de vaporización.',
   },
   {
-    icon: PlaceholderIcon,
+    icon: 'ph:placeholder',
     title: 'Materiales de aislamiento al vacío',
     body: 'Diseñados con super aislamiento y con un vacío menor a 10 micrones en caliente, llegando a 1 en estado frío.',
   },
   {
-    icon: ShieldCheckeredIcon,
+    icon: 'ph:shield-checkered',
     title: 'Robusto contra golpes',
     body: 'Nuestros tanques están probados para soportar hasta 30 ft. de caídas del tanque y hasta 10 ft. de caídas sobre el lado de las válvulas.',
   },
   {
-    icon: CrosshairIcon,
+    icon: 'ph:crosshair',
     title: 'Seguro contra vandalismo',
     body: 'Equipamos nuestros tanques con la mejor protección anti-vandalismo, probados contra disparos de .44 magnum.',
   },
   {
-    icon: FlameIcon,
+    icon: 'ph:flame',
     title: 'Prueba de exposición',
     body: 'Nuestros tanques están probados y sin efecto contra exposición al fuego.',
   },
 ];
 
-const imgCover = ref<HTMLElement>();
-const mainImg = ref<HTMLImageElement>();
+const imgCover = ref<HTMLElement | null>(null);
+const mainImg = ref<HTMLImageElement | null>(null);
 const cards = ref<HTMLElement[]>([]);
-const cardsWrapper = ref<HTMLElement>();
+const cardsWrapper = ref<HTMLElement | null>(null);
+const wrapperEl = ref<HTMLElement | null>(null);
 
-onMounted(() => {
-  const tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top 80%' } });
-  tl.to(imgCover.value, {
-    scaleX: 0,
-    duration: 1.5,
-    ease: 'expo.inOut',
-  });
+let tl: gsap.core.Timeline | null = null;
 
+function createReveal() {
+  // Only create the timeline once
+  if (!!tl) return;
+
+  tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top 80%' } });
+
+  tl.to(imgCover.value, { scaleX: 0, duration: 1.5, ease: 'expo.inOut' });
   tl.from(mainImg.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
+  tl.from(cards.value, { y: 50, opacity: 0, duration: 1.5, ease: 'expo', stagger: 0.1 }, '>-1');
+}
 
-  tl.from(
-    cards.value,
-    {
-      y: 50,
-      opacity: 0,
-      duration: 1.5,
-      ease: 'expo',
-      stagger: 0.1,
-    },
-    '>-1'
-  );
+const isVisible = useElementVisibility(wrapperEl);
+watchOnce(isVisible, (value) => value && createReveal());
+
+onBeforeUnmount(() => {
+  tl?.kill();
 });
 </script>
 
 <template>
-  <section class="py-24">
+  <section ref="wrapperEl" class="py-24">
     <UiContainer>
       <div class="mx-auto flex max-w-3xl flex-col items-center">
         <h2 class="mini-title text-center">Tanques de GNL</h2>
@@ -102,7 +95,7 @@ onMounted(() => {
             aria-hidden="true"
             class="flex h-12 w-12 items-center justify-center rounded-full border-8 border-primary-50 bg-primary-100 text-primary-600"
           >
-            <component :is="feature.icon" class="h-6 w-6" />
+            <Icon :name="feature.icon" class="h-6 w-6" />
           </div>
 
           <h4 class="mt-5 text-center font-headline text-xl font-semibold text-zinc-900">

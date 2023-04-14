@@ -8,37 +8,42 @@ definePageMeta({
   },
 });
 
-const coverTop = ref<HTMLElement>();
-const imgTop = ref<HTMLImageElement>();
-const coverBottom = ref<HTMLElement>();
-const imgBottom = ref<HTMLImageElement>();
+const coverTop = ref<HTMLElement | null>(null);
+const imgTop = ref<HTMLImageElement | null>(null);
+const coverBottom = ref<HTMLElement | null>(null);
+const imgBottom = ref<HTMLImageElement | null>(null);
 
-onMounted(() => {
-  const tl = gsap.timeline();
+const getTransition = inject(transitionsKey, undefined, false);
 
-  tl.to(
-    coverTop.value,
-    {
-      height: 0,
-      duration: 1.5,
-      ease: 'expo.inOut',
-    },
-    'start'
-  );
+let tl: gsap.core.Timeline | null = null;
 
+function createReveal() {
+  if (!!tl) return;
+
+  tl = gsap.timeline();
+
+  tl.to(coverTop.value, { height: 0, duration: 1.5, ease: 'expo.inOut' }, 'start');
   tl.from(imgTop.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
-
-  tl.to(
-    coverBottom.value,
-    {
-      width: 0,
-      duration: 1.5,
-      ease: 'expo.inOut',
-    },
-    '<'
-  );
-
+  tl.to(coverBottom.value, { width: 0, duration: 1.5, ease: 'expo.inOut' }, '<');
   tl.from(imgBottom.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
+}
+
+onMounted(async () => {
+  if (process.server) return;
+
+  await nextTick();
+  await nextTick();
+  const tl = createReveal();
+
+  if (getTransition) {
+    const transition = getTransition();
+    if (transition.timeline && transition.isAnimating.value) transition.timeline.add(tl, '-=0.8');
+  }
+});
+
+onBeforeUnmount(() => {
+  tl?.revert();
+  tl?.kill();
 });
 </script>
 

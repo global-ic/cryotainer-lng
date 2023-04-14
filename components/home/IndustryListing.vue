@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { PropType } from 'vue';
 import type { HomeIndustry } from '~/types';
 
 defineProps({ info: { type: Object as PropType<HomeIndustry>, required: true } });

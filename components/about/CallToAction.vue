@@ -7,23 +7,31 @@ const features = [
   'Presencia y asesoramiento a personal',
 ];
 
-const imgCover = ref<HTMLElement>();
-const mainImg = ref<HTMLImageElement>();
+const wrapperEl = ref<HTMLElement | null>(null);
+const imgCover = ref<HTMLElement | null>(null);
+const mainImg = ref<HTMLImageElement | null>(null);
 
-onMounted(() => {
-  const tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top center' } });
-  tl.to(imgCover.value, {
-    scaleX: 0,
-    duration: 2,
-    ease: 'expo.inOut',
-  });
+let tl: gsap.core.Timeline | null = null;
 
+function createReveal() {
+  // Only create the timeline once
+  if (!!tl) return;
+
+  tl = gsap.timeline({ scrollTrigger: { trigger: wrapperEl.value, start: 'top center' } });
+  tl.to(imgCover.value, { scaleX: 0, duration: 2, ease: 'expo.inOut' });
   tl.from(mainImg.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
+}
+
+const isVisible = useElementVisibility(wrapperEl);
+watchOnce(isVisible, (value) => value && createReveal());
+
+onBeforeUnmount(() => {
+  tl?.kill();
 });
 </script>
 
 <template>
-  <section class="overflow-hidden py-8 md:py-0">
+  <section ref="wrapperEl" class="overflow-hidden py-8 md:py-0">
     <UiContainer class="grid items-center gap-8 md:grid-cols-2 md:gap-0">
       <div>
         <h2 class="font-headline text-3xl font-bold uppercase text-zinc-900 sm:text-4xl">
@@ -45,8 +53,8 @@ onMounted(() => {
         <p class="mt-6 text-zinc-500 sm:text-lg">Todo en un solo lugar.</p>
 
         <div class="mt-8 flex gap-2">
-          <NuxtLink :to="{ name: 'contacto' }" class="btn btn-primary">Contáctanos</NuxtLink>
-          <NuxtLink :to="{ name: 'gnl' }" class="btn btn-outlined">Más información</NuxtLink>
+          <NuxtLink to="/contacto" class="btn btn-primary">Contáctanos</NuxtLink>
+          <NuxtLink to="/gnl" class="btn btn-outlined">Más información</NuxtLink>
         </div>
       </div>
 

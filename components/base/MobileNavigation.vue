@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import { PropType } from 'vue';
-import { NavigationItem as NavItemType } from '~/types';
+import type { NavigationItem as NavItemType } from '~/types';
 
-defineProps({
-  navigation: { type: Array as PropType<NavItemType[]>, required: true },
-});
-
+defineProps({ navigation: { type: Array as PropType<NavItemType[]>, required: true } });
 defineEmits(['close']);
 </script>
 

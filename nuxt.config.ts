@@ -1,7 +1,5 @@
-import { defineNuxtConfig } from 'nuxt';
-
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@vueuse/nuxt', 'unplugin-icons/nuxt'],
+  modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-icon'],
 
   app: {
     head: {
@@ -9,7 +7,7 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap',
@@ -18,5 +16,7 @@ export default defineNuxtConfig({
     },
   },
 
-  autoImports: { dirs: ['composables', 'stores', 'components'] },
+  build: { transpile: ['gsap'] },
+  tailwindcss: { viewer: false },
+  typescript: { strict: true },
 });

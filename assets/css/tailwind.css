@@ -18,26 +18,8 @@
   .btn-outlined-white {
     @apply border border-white text-white transition-all hover:border-primary-700 hover:bg-primary-700 hover:text-primary-100 active:border-primary-900 active:bg-primary-900 active:transition-none;
   }
-}
 
-@layer utilities {
   .mini-title {
     @apply font-semibold text-primary-700;
-  }
-
-  .safe-zone-bg {
-    position: relative;
-    z-index: 10;
-  }
-
-  .safe-zone-bg::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    aspect-ratio: 6 / 1;
-    background: linear-gradient(to top, rgb(24, 24, 24, 0.75), transparent);
-    z-index: -1;
   }
 }

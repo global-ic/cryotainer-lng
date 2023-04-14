@@ -1,7 +1,5 @@
 <script setup lang="ts">
-useHead({
-  title: 'Especialistas en Equipo Criogénico',
-});
+useHead({ title: 'Especialistas en Equipo Criogénico' });
 </script>
 
 <template>

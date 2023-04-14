@@ -1,31 +1,38 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
-import GasPumpIcon from '~icons/ph/gas-pump';
 
-const imgCover = ref<HTMLElement>();
-const mainImg = ref<HTMLImageElement>();
+const imgCover = ref<HTMLElement | null>(null);
+const wrapperEl = ref<HTMLElement | null>(null);
+const mainImg = ref<HTMLImageElement | null>(null);
 
-onMounted(() => {
-  const tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top center' } });
-  tl.to(imgCover.value, {
-    scaleX: 0,
-    duration: 2,
-    ease: 'expo.inOut',
-  });
+let tl: gsap.core.Timeline | null = null;
 
+function createReveal() {
+  // Only create the timeline once
+  if (!!tl) return;
+
+  tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top center' } });
+  tl.to(imgCover.value, { scaleX: 0, duration: 2, ease: 'expo.inOut' });
   tl.from(mainImg.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
+}
+
+const isVisible = useElementVisibility(wrapperEl);
+watchOnce(isVisible, (value) => value && createReveal());
+
+onBeforeUnmount(() => {
+  tl?.kill();
 });
 </script>
 
 <template>
-  <section class="overflow-hidden py-8 md:py-0">
+  <section ref="wrapperEl" class="overflow-hidden py-8 md:py-0">
     <UiContainer class="grid items-center gap-8 md:grid-cols-2 md:gap-0">
       <div>
         <div
           aria-hidden="true"
           class="flex h-12 w-12 items-center justify-center rounded-full border-8 border-primary-50 bg-primary-100 text-primary-600"
         >
-          <GasPumpIcon class="h-6 w-6" />
+          <Icon name="ph:gas-pump" class="h-6 w-6" />
         </div>
 
         <h2 class="mt-6 font-headline text-3xl font-semibold uppercase text-zinc-900 sm:text-4xl">
@@ -40,7 +47,7 @@ onMounted(() => {
           de la red brindan un acceso inigualable.
         </p>
 
-        <NuxtLink :to="{ name: 'contacto' }" class="btn btn-primary mt-8">Contáctanos</NuxtLink>
+        <NuxtLink to="/contacto" class="btn btn-primary mt-8">Contáctanos</NuxtLink>
       </div>
 
       <div class="relative h-80 md:h-[35rem] lg:h-[80vh]">

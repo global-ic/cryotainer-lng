@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import { PropType } from 'vue';
-import { NavigationItem } from '~/types';
-import ListIcon from '~icons/ph/list-bold';
+import type { NavigationItem } from '~/types';
 
 const route = useRoute();
 
 defineEmits(['openMobileMenu']);
-defineProps({
-  navigation: { type: Array as PropType<NavigationItem[]>, required: true },
-});
+defineProps({ navigation: { type: Array as PropType<NavigationItem[]>, required: true } });
 
 const SCROLL_ACTIVE = 50;
 const { y: yScroll } = useWindowScroll();
@@ -51,7 +47,7 @@ const isDarkColor = computed(() => route.meta?.header?.color === 'dark' || false
         isDarkColor || yScroll > SCROLL_ACTIVE ? 'text-zinc-800' : 'text-white',
       ]"
     >
-      <ListIcon class="h-6 w-6" />
+      <Icon name="ph:list-bold" class="h-6 w-6" />
     </button>
   </header>
 </template>

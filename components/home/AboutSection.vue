@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 
-const imgCover = ref<HTMLElement>();
-const textWrapper = ref<HTMLElement>();
-const mainImg = ref<HTMLImageElement>();
-const sectionWrapper = ref<HTMLElement>();
+const imgCover = ref<HTMLElement | null>(null);
+const textWrapper = ref<HTMLElement | null>(null);
+const mainImg = ref<HTMLImageElement | null>(null);
+const sectionWrapper = ref<HTMLElement | null>(null);
 
-onMounted(() => {
+let tl: gsap.core.Timeline | null = null;
+
+function createReveal() {
+  // Only create the timeline once
+  if (!!tl) return;
+
   gsap.from(textWrapper.value, {
     y: 100,
     opacity: 0,
@@ -15,14 +20,16 @@ onMounted(() => {
     scrollTrigger: { trigger: sectionWrapper.value, start: 'top 70%' },
   });
 
-  const tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top 90%' } });
-  tl.to(imgCover.value, {
-    width: 0,
-    duration: 1.5,
-    ease: 'expo.inOut',
-  });
-
+  tl = gsap.timeline({ scrollTrigger: { trigger: mainImg.value, start: 'top 90%' } });
+  tl.to(imgCover.value, { width: 0, duration: 1.5, ease: 'expo.inOut' });
   tl.from(mainImg.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
+}
+
+const isVisible = useElementVisibility(sectionWrapper);
+watchOnce(isVisible, (value) => value && createReveal());
+
+onBeforeUnmount(() => {
+  tl?.kill();
 });
 </script>
 
@@ -37,8 +44,8 @@ onMounted(() => {
           </h2>
 
           <div class="mt-8 flex gap-2">
-            <NuxtLink class="btn btn-primary" :to="{ name: 'contacto' }">Contáctenos</NuxtLink>
-            <NuxtLink class="btn btn-outlined" :to="{ name: 'nosotros' }">Más información</NuxtLink>
+            <NuxtLink class="btn btn-primary" to="/contacto">Contáctenos</NuxtLink>
+            <NuxtLink class="btn btn-outlined" to="/nosotros">Más información</NuxtLink>
           </div>
         </div>
       </div>
