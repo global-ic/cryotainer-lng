@@ -34,6 +34,8 @@ const features: WhoAreWeFeature[] = [
       <li>Isocontenedores</li>
       <li>Vaporizadores</li>
       <li>Válvulas</li>
+      <li>Equipos Móviles de regasificación hasta 100,000 GPD</li>
+      <li>TIAC (Turbine Inlet Air cooling) Enfriamiento de Aire de entrada a turbinas</li>
     </ul>`,
   },
   {
@@ -98,8 +100,8 @@ onMounted(() => {
         <div class="relative h-80 md:h-[35rem] lg:h-[80vh]">
           <div class="absolute h-full w-full overflow-hidden rounded-xl md:left-[10%] lg:w-[50vw]">
             <picture>
-              <source srcset="/img/webp/cryotainer-img-13.webp" type="image/webp" />
-              <source srcset="/img/cryotainer-img-13.jpg" type="image/jpeg" />
+              <source srcset="/img/webp/cryotainer-img-33.webp" type="image/webp" />
+              <source srcset="/img/cryotainer-img-33.jpg" type="image/jpeg" />
               <img
                 src=""
                 ref="mainImg"

@@ -30,6 +30,8 @@ const features: WhoAreWeFeature[] = [
       <li>Isocontenedores</li>
       <li>Vaporizadores</li>
       <li>Válvulas</li>
+      <li>Equipos Móviles de regasificación hasta 100,000 GPD</li>
+      <li>TIAC (Turbine Inlet Air cooling) Enfriamiento de Aire de entrada a turbinas</li>
     </ul>`,
   },
   {

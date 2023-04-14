@@ -33,8 +33,8 @@ onMounted(() => {
         <div class="absolute inset-0 bg-zinc-900 bg-opacity-50" />
 
         <picture>
-          <source srcset="/img/webp/cryotainer-img-23.webp" type="image/webp" />
-          <source srcset="/img/cryotainer-img-23.jpg" type="image/jpeg" />
+          <source srcset="/img/webp/cryotainer-img-34.webp" type="image/webp" />
+          <source srcset="/img/cryotainer-img-34.jpg" type="image/jpeg" />
           <img src="" alt="" class="h-full w-full object-cover object-bottom" />
         </picture>
       </div>
