@@ -19,6 +19,7 @@ export default <Config>{
         xs: '540px',
       },
       colors: {
+        gray: colors.zinc,
         primary: colors.blue,
       },
       aspectRatio: {
