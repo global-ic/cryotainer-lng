@@ -1,5 +1,8 @@
 <script setup lang="ts">
 useHead({ title: 'Página no encontrada' });
+
+const header = useHeaderVariant();
+header.value = 'light';
 </script>
 
 <template>

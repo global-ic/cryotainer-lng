@@ -1,6 +1,8 @@
 <script setup lang="ts">
 useHead({ title: 'Gas Natural Licuado' });
-definePageMeta({ header: { color: 'dark' } });
+
+const header = useHeaderVariant();
+header.value = 'dark';
 </script>
 
 <template>

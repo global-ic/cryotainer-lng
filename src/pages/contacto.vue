@@ -2,11 +2,9 @@
 import { gsap } from 'gsap';
 
 useHead({ title: 'Contáctanos' });
-definePageMeta({
-  header: {
-    color: 'dark',
-  },
-});
+
+const header = useHeaderVariant();
+header.value = 'dark';
 
 const coverTop = ref<HTMLElement | null>(null);
 const imgTop = ref<HTMLImageElement | null>(null);
