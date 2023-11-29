@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   srcDir: 'src',
 
-  modules: ['@cgvweb/ui', '@vueuse/nuxt'],
+  modules: ['@cgvweb/ui', '@vueuse/nuxt', '@pinia/nuxt'],
   devtools: { enabled: true },
 
   tailwindcss: { viewer: false },
@@ -10,5 +10,5 @@ export default defineNuxtConfig({
 
   ui: { icons: ['ph'] },
 
-  typescript: { strict: true },
+  typescript: { strict: true, shim: false },
 });

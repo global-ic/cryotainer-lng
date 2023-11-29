@@ -13,42 +13,33 @@ const imgTop = ref<HTMLImageElement | null>(null);
 const coverBottom = ref<HTMLElement | null>(null);
 const imgBottom = ref<HTMLImageElement | null>(null);
 
-const getTransition = inject(transitionsKey, undefined, false);
+const app = useNuxtApp();
+const transition = useTransitionStore();
 
-let tl: gsap.core.Timeline | null = null;
-
-function createReveal() {
-  if (!!tl) return;
-
-  tl = gsap.timeline();
+function createRevealAnimation() {
+  const tl = gsap.timeline({
+    onComplete() {
+      tl.revert();
+    },
+  });
 
   tl.from(coverTop.value, { scaleY: 1, duration: 1.5, ease: 'expo.inOut' }, 'start');
   tl.from(imgTop.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
   tl.from(coverBottom.value, { scaleX: 1, duration: 1.5, ease: 'expo.inOut' }, '<');
   tl.from(imgBottom.value, { scale: 1.5, duration: 2, opacity: 0, ease: 'expo' }, '<0.5');
+
+  return tl;
 }
 
-onMounted(async () => {
-  if (process.server) return;
-
-  await nextTick();
-  await nextTick();
-  createReveal();
-
-  if (getTransition) {
-    const transition = getTransition();
-    if (transition.timeline && transition.isAnimating.value) transition.timeline.add(tl!, '-=0.8');
-  }
-});
-
-onBeforeUnmount(() => {
-  tl?.revert();
-  tl?.kill();
+app.hooks.hookOnce('page:reveal', () => {
+  if (!process.client) return;
+  const tl = createRevealAnimation();
+  if (!!transition.timeline) transition.timeline.add(tl, '>-1');
 });
 </script>
 
 <template>
-  <div v-once class="flex min-h-screen w-full flex-col-reverse gap-8 px-4 pt-24 pb-8 md:flex-row lg:px-8">
+  <div v-once class="flex min-h-screen w-full flex-col-reverse gap-8 px-4 pb-8 pt-24 md:flex-row lg:px-8">
     <div class="flex max-h-[80vh] w-full flex-col justify-center gap-8 overflow-hidden md:w-1/2">
       <div class="relative h-2/5 overflow-hidden rounded-xl">
         <picture>
@@ -60,7 +51,7 @@ onBeforeUnmount(() => {
         <div
           ref="coverTop"
           style="transform: scaleY(0)"
-          class="absolute top-0 left-0 h-full w-full origin-top bg-gray-50"
+          class="absolute left-0 top-0 h-full w-full origin-top bg-gray-50"
         ></div>
       </div>
 
@@ -74,7 +65,7 @@ onBeforeUnmount(() => {
         <div
           ref="coverBottom"
           style="transform: scaleX(0)"
-          class="absolute top-0 left-0 h-full w-full origin-left bg-gray-50"
+          class="absolute left-0 top-0 h-full w-full origin-left bg-gray-50"
         ></div>
       </div>
     </div>

@@ -35,27 +35,21 @@ const breakpoints = useBreakpoints(breakpointsTailwind);
 const showMobileMenu = breakpoints.smaller('lg');
 
 /** ANIMATION */
-let transitionTimeline: gsap.core.Timeline | null = null;
-const animationMode = ref<'landing' | 'transition'>('landing');
-const isAnimatingTransition = ref(false);
-const lockScroll = ref(true);
 const app = useNuxtApp();
+const transition = useTransitionStore();
+const lockScroll = ref(true);
 
-function createLandingReveal() {
+const courtainRef = ref<HTMLElement | null>(null);
+
+async function createLandingReveal() {
   lockScroll.value = true;
-  animationMode.value = 'landing';
-  isAnimatingTransition.value = true;
+  transition.mode = 'landing';
+  transition.createTimeline(false);
 
-  transitionTimeline = gsap.timeline({
-    paused: true,
-    onComplete() {
-      transitionTimeline?.kill();
-      transitionTimeline = null;
-      isAnimatingTransition.value = false;
-    },
-  });
+  // Wait for the render to happen
+  if (!courtainRef.value) await nextTick();
 
-  transitionTimeline.to('#courtain', {
+  transition.timeline!.to(courtainRef.value, {
     x: '100%',
     delay: 0.2,
     ease: 'expo.out',
@@ -66,65 +60,61 @@ function createLandingReveal() {
   });
 }
 
-onMounted(() => {
-  if (process.server) return;
-  createLandingReveal();
+/**
+ * Play the website reveal animation
+ */
+app.hooks.hookOnce('page:finish', async () => {
+  if (!process.client) return;
+  await createLandingReveal();
+  app.callHook('page:reveal');
 });
 
-app.hook('page:finish', () => {
-  if (process.client && transitionTimeline) transitionTimeline.play();
-});
+/* PAGE TRANSITIONS */
 
-provide(transitionsKey, () => ({
-  mode: animationMode,
-  timeline: transitionTimeline,
-  isAnimating: isAnimatingTransition,
-}));
+async function onLeave(_: unknown, done: Function) {
+  /**
+   * We consider onLeave as completed ONLY once the "page:finish" hook
+   * is called and the transition courtain was placed
+   */
 
-function startTransition(_: any, done: Function) {
-  animationMode.value = 'transition';
-  isAnimatingTransition.value = true;
+  await Promise.all([
+    new Promise((resolve) => app.hooks.hookOnce('page:finish', () => resolve(true))),
+    new Promise((resolve) => {
+      transition.mode = 'transition';
+      transition.createTimeline(false);
 
-  if (transitionTimeline) {
-    transitionTimeline.kill();
-    transitionTimeline = null;
-  }
+      // Move courtain into view and lock scroll
+      transition.timeline!.to(courtainRef.value, {
+        x: 0,
+        ease: 'expo.out',
+        duration: 0.6,
+        onStart() {
+          lockScroll.value = true;
+        },
+        onComplete() {
+          transition.timeline?.pause();
+          resolve(true);
+        },
+      });
 
-  transitionTimeline = gsap.timeline({
-    onComplete() {
-      transitionTimeline?.revert();
-      transitionTimeline = null;
-      isAnimatingTransition.value = false;
-    },
-  });
+      // Get courtain out of view and unlock scroll
+      transition.timeline!.to(courtainRef.value, {
+        x: '100%',
+        ease: 'expo.out',
+        duration: 1,
+        onComplete() {
+          lockScroll.value = false;
+        },
+      });
+    }),
+  ]);
 
-  // Move courtain into view and lock scroll
-  transitionTimeline.to('#courtain', {
-    x: 0,
-    ease: 'expo.out',
-    duration: 0.6,
-    onStart() {
-      lockScroll.value = true;
-    },
-    onComplete() {
-      transitionTimeline?.pause();
-      done();
-    },
-  });
-
-  // Get courtain out of view and unlock scroll
-  transitionTimeline.to('#courtain', {
-    x: '100%',
-    ease: 'expo.out',
-    duration: 1,
-    onComplete() {
-      lockScroll.value = false;
-    },
-  });
+  done();
 }
 
-function endTransition(_: any, done: Function) {
-  transitionTimeline?.play();
+function onEnter(_: unknown, done: Function) {
+  app.callHook('page:reveal');
+  transition.timeline?.play();
   done();
 }
 </script>
@@ -142,7 +132,7 @@ function endTransition(_: any, done: Function) {
 
     <Teleport to="body">
       <div
-        id="courtain"
+        ref="courtainRef"
         style="top: 0; right: 0"
         class="fixed z-30 flex h-screen w-screen items-center justify-center bg-zinc-800"
       >
@@ -156,14 +146,7 @@ function endTransition(_: any, done: Function) {
       <BaseMobileNavigation class="flex-1" :navigation="nav" @close="mobileMenuOpen = false" />
     </UiSlideover>
 
-    <NuxtPage
-      :transition="{
-        css: false,
-        mode: 'out-in',
-        onLeave: startTransition,
-        onEnter: endTransition,
-      }"
-    />
+    <NuxtPage :transition="{ css: false, mode: 'out-in', onLeave, onEnter }" />
 
     <BaseFooter :navigation="nav" />
   </div>

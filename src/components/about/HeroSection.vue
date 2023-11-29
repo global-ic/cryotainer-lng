@@ -5,9 +5,10 @@ const line1 = ref<HTMLSpanElement | null>(null);
 const line2 = ref<HTMLSpanElement | null>(null);
 const heroSection = ref<HTMLElement | null>(null);
 
-const getTransition = inject(transitionsKey, undefined, false);
+const app = useNuxtApp();
+const transition = useTransitionStore();
 
-function createReveal() {
+function createRevealAnimation() {
   const tl = gsap.timeline({
     onComplete() {
       tl.revert();
@@ -19,15 +20,10 @@ function createReveal() {
   return tl;
 }
 
-onMounted(() => {
-  if (process.server) return;
-
-  const tl = createReveal();
-
-  if (getTransition) {
-    const transition = getTransition();
-    if (transition.timeline && transition.isAnimating.value) transition.timeline.add(tl, '-=0.8');
-  }
+app.hooks.hookOnce('page:reveal', () => {
+  if (!process.client) return;
+  const tl = createRevealAnimation();
+  if (!!transition.timeline) transition.timeline.add(tl, '>-0.7');
 });
 </script>
 

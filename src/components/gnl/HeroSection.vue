@@ -7,10 +7,15 @@ const headline = ref<HTMLElement | null>(null);
 const supporting = ref<HTMLElement | null>(null);
 const mainImg = ref<HTMLImageElement | null>(null);
 
-const getTransition = inject(transitionsKey, undefined, false);
+const app = useNuxtApp();
+const transition = useTransitionStore();
 
-function createReveal() {
-  const tl = gsap.timeline();
+function createRevealAnimation() {
+  const tl = gsap.timeline({
+    onComplete() {
+      tl.revert();
+    },
+  });
 
   tl.from([logoEl.value, headline.value, supporting.value], {
     y: 10,
@@ -26,14 +31,10 @@ function createReveal() {
   return tl;
 }
 
-onMounted(() => {
-  if (process.server) return;
-  const tl = createReveal();
-
-  if (getTransition) {
-    const transition = getTransition();
-    if (transition.timeline && transition.isAnimating.value) transition.timeline.add(tl, '-=0.5');
-  }
+app.hooks.hookOnce('page:reveal', () => {
+  if (!process.client) return;
+  const tl = createRevealAnimation();
+  if (!!transition.timeline) transition.timeline.add(tl, '>-0.5');
 });
 </script>
 
@@ -73,7 +74,7 @@ onMounted(() => {
         <div
           ref="imgCover"
           style="transform: scaleY(0)"
-          class="absolute top-0 left-0 h-full w-full origin-top bg-gray-50"
+          class="absolute left-0 top-0 h-full w-full origin-top bg-gray-50"
         ></div>
       </div>
     </UiContainer>
