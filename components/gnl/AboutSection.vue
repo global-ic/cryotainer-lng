@@ -3,17 +3,17 @@ import { gsap } from 'gsap';
 
 const features = [
   {
-    icon: 'ph:money',
+    icon: 'i-ph-money',
     title: 'Económico',
     body: 'Dentro de los combustibles fósiles está un 30% por debajo del precio promedio del diésel.',
   },
   {
-    icon: 'ph:shield-check',
+    icon: 'i-ph-shield-check',
     title: 'Seguro',
     body: 'Al ser mas ligero que el aire en casi de fuga se disipará mas rápido, no contamina los mantos freáticos.',
   },
   {
-    icon: 'ph:tree',
+    icon: 'i-ph-tree',
     title: 'Ecológico',
     body: 'Distinguido como uno de los combustibles fósiles más limpios disponibles, el GNL es una alternativa confiable y respetuosa con el medio ambiente al gas natural.',
   },
@@ -65,7 +65,7 @@ watchOnce(isVisible, (value) => value && createReveal());
               aria-hidden="true"
               class="flex h-12 w-12 items-center justify-center rounded-full border-8 border-primary-50 bg-primary-100 text-primary-600"
             >
-              <Icon :name="feature.icon" class="h-6 w-6" />
+              <UiIcon :name="feature.icon" class="h-6 w-6" />
             </div>
 
             <div class="mt-2 flex-1 space-y-2">

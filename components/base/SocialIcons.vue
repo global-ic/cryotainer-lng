@@ -2,7 +2,7 @@
 
 <template>
   <div aria-label="Redes sociales" class="flex space-x-6">
-    <a href="mailto:contacto@cryotainerlng.com"><Icon name="ph:envelope" class="social-icon" /></a>
+    <a href="mailto:contacto@cryotainerlng.com"><UiIcon name="i-ph-envelope" class="social-icon" /></a>
   </div>
 </template>
 

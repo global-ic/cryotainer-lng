@@ -1,4 +1,5 @@
 import type { InjectionKey } from 'vue';
+import type { gsap } from 'gsap';
 
 export type TransitionEffect = () => {
   isAnimating: Ref<boolean>;

@@ -3,22 +3,22 @@ import { gsap } from 'gsap';
 
 const values = [
   {
-    icon: 'ph:star',
+    icon: 'i-ph-star',
     title: 'Estándares de calidad',
     desc: 'Nuestros equipos cumplen códigos ASME, GB y otros estándares internacionales.',
   },
   {
-    icon: 'ph:hourglass-medium',
+    icon: 'i-ph-hourglass-medium',
     title: 'Tiempos de entrega',
     desc: 'Proveemos soluciones con los tiempos de entrega mas cortos del mercado.',
   },
   {
-    icon: 'ph:users',
+    icon: 'i-ph-users',
     title: 'Consultorías',
     desc: 'Asesoramos y acompañamos en todo momento del desarrollo del proyecto.',
   },
   {
-    icon: 'ph:bookmark',
+    icon: 'i-ph-bookmark',
     title: 'Todo en un solo lugar',
     desc: 'Proveemos los equipos necesarios para el excelente funcionamiento y operación.',
   },
@@ -69,7 +69,7 @@ onBeforeUnmount(() => {
       <ul ref="cardsWrapper" class="mt-16 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
         <li ref="cards" v-for="value in values" class="rounded-xl bg-zinc-100 p-6">
           <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-500">
-            <Icon :name="value.icon" class="h-6 w-6 text-white" />
+            <UiIcon :name="value.icon" class="h-6 w-6 text-white" />
           </div>
 
           <div class="mt-24">

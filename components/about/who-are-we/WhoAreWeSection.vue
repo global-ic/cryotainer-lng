@@ -4,7 +4,7 @@ import type { WhoAreWeFeature } from '~/types';
 
 const features: WhoAreWeFeature[] = [
   {
-    icon: 'ph:wrench',
+    icon: 'i-ph-wrench',
     title: 'Mantenimiento de equipo',
     description: `<p>Proporcionamos mantenimiento de equipo criogénico.</p>
 
@@ -15,12 +15,12 @@ const features: WhoAreWeFeature[] = [
     </ul>`,
   },
   {
-    icon: 'ph:stack',
+    icon: 'i-ph-stack',
     title: 'Diseño de estaciones',
     description: `<p>Contamos con el servicio de diseño de Estaciones de Regasificación para Gas Natural y gases del Aire</p>`,
   },
   {
-    icon: 'ph:snowflake',
+    icon: 'i-ph-snowflake',
     title: 'Venta de equipo criogénico',
     description: `<ul class="list-inside list-disc">
       <li>Isocontenedores</li>
@@ -31,7 +31,7 @@ const features: WhoAreWeFeature[] = [
     </ul>`,
   },
   {
-    icon: 'ph:truck',
+    icon: 'i-ph-truck',
     title: 'Renta de equipo criogénico',
     description: `<ul class="list-inside list-disc">
       <li>Isocontenedores</li>
@@ -99,7 +99,7 @@ onBeforeUnmount(() => {
 
           <div
             ref="imgCover"
-            class="absolute top-0 left-0 h-full w-full origin-right bg-gray-50 md:left-[10%] lg:w-[50vw]"
+            class="absolute left-0 top-0 h-full w-full origin-right bg-gray-50 md:left-[10%] lg:w-[50vw]"
           ></div>
         </div>
       </div>

@@ -37,7 +37,7 @@ defineProps({ navigation: { type: Array as PropType<NavigationItem[]>, required:
             <span class="footer-subtitle">Contacto</span>
 
             <span aria-label="Ubicación" class="flex items-center gap-2 text-zinc-700">
-              <Icon name="ph:map-pin-fill" class="h-5 w-5" /> México
+              <UiIcon name="i-ph-map-pin-fill" class="h-5 w-5" /> México
             </span>
 
             <a
@@ -45,7 +45,7 @@ defineProps({ navigation: { type: Array as PropType<NavigationItem[]>, required:
               href="mailto:contacto@cryotainerlng.com"
               class="footer-link flex items-center gap-2"
             >
-              <Icon name="ph:envelope-simple-open-fill" class="h-5 w-5" /> contacto@cryotainerlng.com
+              <UiIcon name="i-ph-envelope-simple-open-fill" class="h-5 w-5" /> contacto@cryotainerlng.com
             </a>
           </div>
         </div>

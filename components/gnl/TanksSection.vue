@@ -3,27 +3,27 @@ import { gsap } from 'gsap';
 
 const features = [
   {
-    icon: 'ph:columns',
+    icon: 'i-ph-columns',
     title: 'Construcción de doble pared',
     body: 'Un tanque dentro de otro tanque garantizando la menor tasa de vaporización.',
   },
   {
-    icon: 'ph:placeholder',
+    icon: 'i-ph-placeholder',
     title: 'Materiales de aislamiento al vacío',
     body: 'Diseñados con super aislamiento y con un vacío menor a 10 micrones en caliente, llegando a 1 en estado frío.',
   },
   {
-    icon: 'ph:shield-checkered',
+    icon: 'i-ph-shield-checkered',
     title: 'Robusto contra golpes',
     body: 'Nuestros tanques están probados para soportar hasta 30 ft. de caídas del tanque y hasta 10 ft. de caídas sobre el lado de las válvulas.',
   },
   {
-    icon: 'ph:crosshair',
+    icon: 'i-ph-crosshair',
     title: 'Seguro contra vandalismo',
     body: 'Equipamos nuestros tanques con la mejor protección anti-vandalismo, probados contra disparos de .44 magnum.',
   },
   {
-    icon: 'ph:flame',
+    icon: 'i-ph-flame',
     title: 'Prueba de exposición',
     body: 'Nuestros tanques están probados y sin efecto contra exposición al fuego.',
   },
@@ -82,7 +82,7 @@ onBeforeUnmount(() => {
           />
         </picture>
 
-        <div ref="imgCover" class="absolute top-0 left-0 h-full w-full origin-right bg-gray-50"></div>
+        <div ref="imgCover" class="absolute left-0 top-0 h-full w-full origin-right bg-gray-50"></div>
       </div>
 
       <ul ref="cardsWrapper" class="mt-16 flex flex-wrap justify-center gap-y-8 md:gap-y-16">
@@ -95,7 +95,7 @@ onBeforeUnmount(() => {
             aria-hidden="true"
             class="flex h-12 w-12 items-center justify-center rounded-full border-8 border-primary-50 bg-primary-100 text-primary-600"
           >
-            <Icon :name="feature.icon" class="h-6 w-6" />
+            <UiIcon :name="feature.icon" class="h-6 w-6" />
           </div>
 
           <h4 class="mt-5 text-center font-headline text-xl font-semibold text-zinc-900">

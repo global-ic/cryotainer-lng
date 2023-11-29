@@ -3,17 +3,17 @@ import { gsap } from 'gsap';
 
 const features = [
   {
-    icon: 'ph:money',
+    icon: 'i-ph-money',
     title: 'Económico',
     body: 'El proceso de licuefacción condensa el volumen de gas hasta 600 veces, lo que permite un transporte más fácil a áreas donde no existen gasoductos de gas natural.',
   },
   {
     title: 'Seguro',
-    icon: 'ph:shield-check',
+    icon: 'i-ph-shield-check',
     body: 'El GNL es un gas natural no tóxico, no corrosivo e inodoro, lo que reduce los riesgos de su manipulación y lo vuelve en una alternativa más segura.',
   },
   {
-    icon: 'ph:tree',
+    icon: 'i-ph-tree',
     title: 'Ecológico',
     body: 'Distinguido como uno de los combustibles fósiles más limpios disponibles, el GNL es una alternativa confiable y respetuosa con el medio ambiente al gas natural.',
   },
@@ -76,7 +76,7 @@ onBeforeUnmount(() => {
               aria-hidden="true"
               class="flex h-12 w-12 items-center justify-center rounded-full border-8 border-primary-50 bg-primary-100 text-primary-600"
             >
-              <Icon :name="feature.icon" class="h-6 w-6" />
+              <UiIcon :name="feature.icon" class="h-6 w-6" />
             </div>
 
             <div class="mt-2 flex-1 space-y-2">
@@ -102,7 +102,7 @@ onBeforeUnmount(() => {
 
           <div
             ref="imgCover"
-            class="absolute top-0 left-0 h-full w-full origin-right bg-gray-50 md:left-[10%] lg:w-[50vw]"
+            class="absolute left-0 top-0 h-full w-full origin-right bg-gray-50 md:left-[10%] lg:w-[50vw]"
           ></div>
         </div>
       </div>

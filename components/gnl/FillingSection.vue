@@ -32,7 +32,7 @@ onBeforeUnmount(() => {
           aria-hidden="true"
           class="flex h-12 w-12 items-center justify-center rounded-full border-8 border-primary-50 bg-primary-100 text-primary-600"
         >
-          <Icon name="ph:gas-pump" class="h-6 w-6" />
+          <UiIcon name="i-ph-gas-pump" class="h-6 w-6" />
         </div>
 
         <h2 class="mt-6 font-headline text-3xl font-semibold uppercase text-zinc-900 sm:text-4xl">
@@ -68,7 +68,7 @@ onBeforeUnmount(() => {
 
         <div
           ref="imgCover"
-          class="absolute top-0 left-0 h-full w-full origin-right bg-gray-50 md:left-[10%] lg:w-[50vw]"
+          class="absolute left-0 top-0 h-full w-full origin-right bg-gray-50 md:left-[10%] lg:w-[50vw]"
         ></div>
       </div>
     </UiContainer>

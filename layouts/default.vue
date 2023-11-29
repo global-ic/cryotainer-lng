@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { breakpointsTailwind } from '@vueuse/core';
 import { gsap, ScrollTrigger } from 'gsap/all';
-import { NavigationItem } from '~/types';
+import type { NavigationItem } from '~/types';
 
 if (process.client) gsap.registerPlugin(ScrollTrigger);
 

@@ -54,7 +54,7 @@ defineEmits(['close']);
                 class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               >
                 <span class="sr-only">{{ closeSrLabel }}</span>
-                <Icon name="ph:x" class="h-6 w-6 text-white" />
+                <UiIcon name="i-ph-x" class="h-6 w-6 text-white" />
               </button>
             </div>
           </TransitionChild>

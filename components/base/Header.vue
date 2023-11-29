@@ -16,7 +16,7 @@ const isDarkColor = computed(() => route.meta?.header?.color === 'dark' || false
   <header
     :class="[
       yScroll > SCROLL_ACTIVE && 'border-gray-200 bg-white bg-opacity-60 backdrop-blur backdrop-filter',
-      'fixed inset-x-0 top-0 z-20 flex items-center justify-between border-b border-transparent py-4 px-4 transition-all duration-300 lg:px-8',
+      'fixed inset-x-0 top-0 z-20 flex items-center justify-between border-b border-transparent px-4 py-4 transition-all duration-300 lg:px-8',
     ]"
   >
     <NuxtLink
@@ -47,7 +47,7 @@ const isDarkColor = computed(() => route.meta?.header?.color === 'dark' || false
         isDarkColor || yScroll > SCROLL_ACTIVE ? 'text-zinc-800' : 'text-white',
       ]"
     >
-      <Icon name="ph:list-bold" class="h-6 w-6" />
+      <UiIcon name="i-ph-list-bold" class="h-6 w-6" />
     </button>
   </header>
 </template>

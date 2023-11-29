@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Inter';
+  src: url(~/assets/fonts/Inter.woff2) format('woff2');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bai Jamjuree';
+  src: url(~/assets/fonts/Bai-Jamjuree/BaiJamjuree-Regular.ttf) format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bai Jamjuree';
+  src: url(~/assets/fonts/Bai-Jamjuree/BaiJamjuree-Light.ttf) format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bai Jamjuree';
+  src: url(~/assets/fonts/Bai-Jamjuree/BaiJamjuree-SemiBold.ttf) format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bai Jamjuree';
+  src: url(~/assets/fonts/Bai-Jamjuree/BaiJamjuree-Bold.ttf) format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer components {
   .btn {
     @apply inline-block rounded-md px-8 py-2 font-headline text-xs uppercase;

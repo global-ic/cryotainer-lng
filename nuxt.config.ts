@@ -1,22 +1,19 @@
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-icon'],
+  modules: ['@cgvweb/ui', '@vueuse/nuxt'],
+  devtools: { enabled: true },
 
   app: {
     head: {
       titleTemplate: '%s - Cryotainer LNG',
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap',
-        },
-      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
     },
   },
 
-  build: { transpile: ['gsap'] },
   tailwindcss: { viewer: false },
+
+  build: { transpile: ['gsap'] },
+
+  ui: { icons: ['ph'] },
+
   typescript: { strict: true },
 });
