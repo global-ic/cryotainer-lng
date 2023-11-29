@@ -3,6 +3,24 @@ import { breakpointsTailwind } from '@vueuse/core';
 import { gsap, ScrollTrigger } from 'gsap/all';
 import type { NavigationItem } from '~/types';
 
+useHead({
+  titleTemplate: formatPageTitle,
+  link: [{ rel: 'icon', type: 'image/png', href: 'favicon.png' }],
+});
+
+useSeoMeta({
+  ogType: 'website',
+  ogUrl: 'https://cryotainerlng.com',
+
+  title: 'Especialistas en Equipo Criogénico - Cryotainer LNG',
+  ogTitle: 'Especialistas en Equipo Criogénico - Cryotainer LNG',
+
+  description:
+    'Somos proveedores de equipos y servicios de primer nivel en la industria de gasoductos virtuales. Con décadas de experiencia brindando soluciones innovadoras de gas natural y gases de aire.',
+  ogDescription:
+    'Somos proveedores de equipos y servicios de primer nivel en la industria de gasoductos virtuales. Con décadas de experiencia brindando soluciones innovadoras de gas natural y gases de aire.',
+});
+
 if (process.client) gsap.registerPlugin(ScrollTrigger);
 
 const nav = computed<NavigationItem[]>(() => [
@@ -112,9 +130,15 @@ function endTransition(_: any, done: Function) {
 </script>
 
 <template>
-  <div>
+  <div class="flex min-h-screen flex-col">
     <Html lang="es" />
-    <Body :class="[lockScroll && 'h-screen w-screen overflow-hidden', 'bg-zinc-50 antialiased']" />
+    <Body
+      :class="[
+        lockScroll && 'h-screen w-screen overflow-hidden',
+        'bg-zinc-50 antialiased selection:bg-primary-400/20 selection:text-primary-600',
+      ]"
+    />
+    <NuxtLoadingIndicator color="#2563eb" />
 
     <Teleport to="body">
       <div
