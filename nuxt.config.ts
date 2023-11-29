@@ -1,4 +1,6 @@
 export default defineNuxtConfig({
+  srcDir: 'src',
+
   modules: ['@cgvweb/ui', '@vueuse/nuxt'],
   devtools: { enabled: true },
 
