@@ -51,7 +51,7 @@ app.hooks.hookOnce('page:reveal', () => {
         </h1>
       </div>
 
-      <NuxtLink class="hero-link btn btn-primary mt-8" to="/nosotros">Sobre nosotros</NuxtLink>
+      <UiButton class="hero-link mt-8" to="/nosotros" label="Sobre Nosotros" />
     </div>
   </section>
 </template>

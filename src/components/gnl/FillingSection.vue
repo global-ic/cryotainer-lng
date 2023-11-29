@@ -47,7 +47,7 @@ onBeforeUnmount(() => {
           de la red brindan un acceso inigualable.
         </p>
 
-        <NuxtLink to="/contacto" class="btn btn-primary mt-8">Contáctanos</NuxtLink>
+        <UiButton to="/contacto" class="mt-8" label="Contáctanos" />
       </div>
 
       <div class="relative h-80 md:h-[35rem] lg:h-[80vh]">

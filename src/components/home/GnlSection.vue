@@ -66,7 +66,7 @@ onBeforeUnmount(() => {
           la licuefacción, el GNL se obtiene enfriando el gas a -162° (-260°F).
         </p>
 
-        <NuxtLink class="btn btn-primary mt-8" to="/gnl">Más información</NuxtLink>
+        <UiButton class="mt-8" to="/gnl" label="Más información" />
       </div>
 
       <div ref="cardsWrapper" class="mt-6 grid items-center gap-x-16 gap-y-8 md:mt-8 md:grid-cols-2">

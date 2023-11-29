@@ -44,8 +44,8 @@ onBeforeUnmount(() => {
           </h2>
 
           <div class="mt-8 flex gap-2">
-            <NuxtLink class="btn btn-primary" to="/contacto">Contáctenos</NuxtLink>
-            <NuxtLink class="btn btn-outlined" to="/nosotros">Más información</NuxtLink>
+            <UiButton to="/contacto" label="Contáctenos" />
+            <UiButton variant="primary-outlined" to="/nosotros" label="Más información" />
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@ onBeforeUnmount(() => {
           />
         </picture>
 
-        <div ref="imgCover" class="absolute top-0 left-0 h-full w-full origin-left bg-gray-50"></div>
+        <div ref="imgCover" class="absolute left-0 top-0 h-full w-full origin-left bg-gray-50"></div>
       </div>
     </UiContainer>
   </section>

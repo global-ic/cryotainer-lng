@@ -43,22 +43,6 @@
 }
 
 @layer components {
-  .btn {
-    @apply inline-block rounded-md px-8 py-2 font-headline text-xs uppercase;
-  }
-
-  .btn-primary {
-    @apply border border-primary-100 bg-primary-100 text-primary-900 transition-colors hover:border-primary-700 hover:bg-primary-700 hover:text-primary-100 active:border-primary-900 active:bg-primary-900 active:transition-none;
-  }
-
-  .btn-outlined {
-    @apply border border-primary-900 text-primary-900 transition-colors hover:bg-primary-700 hover:text-primary-100 active:bg-primary-900 active:transition-none;
-  }
-
-  .btn-outlined-white {
-    @apply border border-white text-white transition-all hover:border-primary-700 hover:bg-primary-700 hover:text-primary-100 active:border-primary-900 active:bg-primary-900 active:transition-none;
-  }
-
   .mini-title {
     @apply font-semibold text-primary-700;
   }

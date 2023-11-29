@@ -53,8 +53,8 @@ onBeforeUnmount(() => {
         <p class="mt-6 text-zinc-500 sm:text-lg">Todo en un solo lugar.</p>
 
         <div class="mt-8 flex gap-2">
-          <NuxtLink to="/contacto" class="btn btn-primary">Contáctanos</NuxtLink>
-          <NuxtLink to="/gnl" class="btn btn-outlined">Más información</NuxtLink>
+          <UiButton to="/contacto" label="Contáctanos" />
+          <UiButton to="/gnl" variant="primary-outlined" label="Más información" />
         </div>
       </div>
 
@@ -76,7 +76,7 @@ onBeforeUnmount(() => {
 
         <div
           ref="imgCover"
-          class="absolute top-0 left-0 h-full w-full origin-right bg-gray-50 md:left-[10%] lg:w-[50vw]"
+          class="absolute left-0 top-0 h-full w-full origin-right bg-gray-50 md:left-[10%] lg:w-[50vw]"
         ></div>
       </div>
     </UiContainer>
