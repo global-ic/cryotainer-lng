@@ -33,13 +33,16 @@ const displayMode = computed(() => {
         >
 
         <nav class="hidden space-x-10 md:flex">
-          <NuxtLink
+          <UiLink
             v-for="item in globals.mainNav"
-            :key="`ni-${item.name}`"
+            :key="item.name"
             :to="item.route || '/'"
             active-class="underline"
-            :class="['nav-link', displayMode === 'dark' ? 'text-zinc-800' : 'text-white']"
-            >{{ item.name }}</NuxtLink
+            :class="[
+              'font-light uppercase hover:underline',
+              displayMode === 'dark' ? 'text-zinc-800' : 'text-white',
+            ]"
+            >{{ item.name }}</UiLink
           >
         </nav>
 
@@ -48,9 +51,3 @@ const displayMode = computed(() => {
     </header>
   </ClientOnly>
 </template>
-
-<style scoped>
-.nav-link {
-  @apply font-light uppercase;
-}
-</style>
