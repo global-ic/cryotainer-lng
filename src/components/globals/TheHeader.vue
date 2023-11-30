@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import type { NavigationItem } from '~/types';
-
 defineEmits(['openMobileMenu']);
-defineProps({ navigation: { type: Array as PropType<NavigationItem[]>, required: true } });
+
+const globals = useGlobalStore();
 
 const SCROLL_ACTIVE = 50;
 const { y: scrollPos } = useWindowScroll();
@@ -35,7 +34,7 @@ const displayMode = computed(() => {
 
         <nav class="hidden space-x-10 md:flex">
           <NuxtLink
-            v-for="item in navigation"
+            v-for="item in globals.mainNav"
             :key="`ni-${item.name}`"
             :to="item.route || '/'"
             active-class="underline"
@@ -44,7 +43,7 @@ const displayMode = computed(() => {
           >
         </nav>
 
-        <TheMobileNavigation :navigation="navigation" :scrolled="displayMode === 'dark'" />
+        <TheMobileNavigation :scrolled="displayMode === 'dark'" />
       </UiContainer>
     </header>
   </ClientOnly>

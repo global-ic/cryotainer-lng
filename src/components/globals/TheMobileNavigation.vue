@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
-import type { NavigationItem } from '~/types';
 
-defineProps<{ navigation: NavigationItem[]; scrolled?: boolean }>();
+defineProps<{ scrolled?: boolean }>();
+
+const globals = useGlobalStore();
 
 // Animation
 const isOpen = useState('mobile-menu:show', () => false);
@@ -83,7 +84,7 @@ onBeforeUnmount(() => {
 
             <nav class="flex flex-col gap-y-4 pt-20 sm:gap-y-6">
               <UiLink
-                v-for="(item, idx) in navigation"
+                v-for="(item, idx) in globals.mainNav"
                 :key="`item:${idx}`"
                 :to="item.route"
                 @click="hideMenu"

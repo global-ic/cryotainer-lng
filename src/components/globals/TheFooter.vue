@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import type { NavigationItem } from '~/types';
-
-defineProps({ navigation: { type: Array as PropType<NavigationItem[]>, required: true } });
+const globals = useGlobalStore();
 </script>
 
 <template>
@@ -28,7 +26,7 @@ defineProps({ navigation: { type: Array as PropType<NavigationItem[]>, required:
           <div class="footer-link-col">
             <span class="footer-subtitle">Sitio web</span>
 
-            <NuxtLink v-for="link in navigation" :to="link.route!" class="footer-link">{{
+            <NuxtLink v-for="link in globals.mainNav" :to="link.route!" class="footer-link">{{
               link.name
             }}</NuxtLink>
           </div>

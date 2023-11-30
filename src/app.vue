@@ -23,13 +23,6 @@ useSeoMeta({
 
 if (process.client) gsap.registerPlugin(ScrollTrigger);
 
-const nav = computed<NavigationItem[]>(() => [
-  { name: 'Inicio', route: '/' },
-  { name: 'Nosotros', route: '/nosotros' },
-  { name: 'GNL', route: '/gnl' },
-  { name: 'Contacto', route: '/contacto' },
-]);
-
 const mobileMenuOpen = ref(false);
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const showMobileMenu = breakpoints.smaller('lg');
@@ -147,10 +140,10 @@ function onEnter(_: unknown, done: Function) {
       </div>
     </Teleport>
 
-    <TheHeader :navigation="nav" @open-mobile-menu="mobileMenuOpen = true" />
+    <TheHeader @open-mobile-menu="mobileMenuOpen = true" />
 
     <NuxtPage :transition="{ css: false, mode: 'out-in', onLeave, onEnter }" />
 
-    <TheFooter :navigation="nav" />
+    <TheFooter />
   </div>
 </template>
