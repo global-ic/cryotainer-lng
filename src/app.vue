@@ -141,17 +141,13 @@ function onEnter(_: unknown, done: Function) {
       <div
         ref="courtainRef"
         style="top: 0; right: 0"
-        class="fixed z-30 flex h-screen w-screen items-center justify-center bg-zinc-800"
+        class="fixed z-50 flex h-screen w-screen items-center justify-center bg-zinc-800"
       >
         <span class="font-headline text-2xl font-bold uppercase text-white sm:text-4xl">Cryotainer LNG</span>
       </div>
     </Teleport>
 
     <TheHeader :navigation="nav" @open-mobile-menu="mobileMenuOpen = true" />
-
-    <UiSlideover v-if="showMobileMenu" :is-open="mobileMenuOpen" @close="mobileMenuOpen = false">
-      <TheMobileNavigation class="flex-1" :navigation="nav" @close="mobileMenuOpen = false" />
-    </UiSlideover>
 
     <NuxtPage :transition="{ css: false, mode: 'out-in', onLeave, onEnter }" />
 

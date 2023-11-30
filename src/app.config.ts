@@ -7,11 +7,17 @@ export default defineAppConfig({
     button: {
       font: 'font-headline uppercase font-normal',
       rounded: 'rounded-md',
-      padding: {
-        sm: 'px-8 py-2',
-      },
       size: {
         sm: 'text-xs',
+        icon: 'text-xs',
+      },
+      padding: {
+        sm: 'px-8 py-2',
+        icon: 'p-1',
+      },
+      gap: {
+        sm: 'gap-0.5',
+        icon: 'gap-0',
       },
 
       variant: {
