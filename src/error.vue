@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app';
 
-const env = useRuntimeConfig();
 const props = defineProps<{ error: object }>();
 
 useHead({ title: formatPageTitle('Ocurrió un error') });
@@ -50,15 +49,19 @@ function goHome() {
     <Body class="bg-gray-50 antialiased selection:bg-primary-400/20 selection:text-primary-600" />
 
     <UiContainer class="flex flex-col items-center">
-      <span class="text-sm font-semibold uppercase tracking-wide text-primary-600">Error 404</span>
-      <h1 class="mt-2 font-headline text-4xl font-bold uppercase tracking-tight text-gray-950 sm:text-5xl">
-        Página no encontrada
-      </h1>
-      <span class="mt-2 text-lg text-gray-600"
-        >Parece que la página que visitaste no existe o fue movida.</span
-      >
+      <picture>
+        <source srcset="/img/webp/cryotainer-logo.webp" type="image/webp" />
+        <source srcset="/img/cryotainer-logo.png" type="image/png" />
+        <img src="" class="-mt-16 mb-8 h-8 md:-mt-20 md:h-12" alt="Logo Cryotainer" />
+      </picture>
 
-      <UiButton class="hero-link mt-8" label="Volver al inicio" />
+      <h1 class="text-center font-headline text-3xl font-semibold uppercase text-gray-950 md:text-4xl">
+        Ocurrió un error
+      </h1>
+
+      <span class="mt-1 text-center text-gray-950 opacity-70 md:text-lg">{{ usableError.msg }}</span>
+
+      <UiButton v-if="usableError.canGoHome" class="mt-8" label="Volver al inicio" @click="goHome" />
     </UiContainer>
   </div>
 </template>
