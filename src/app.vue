@@ -147,14 +147,14 @@ function onEnter(_: unknown, done: Function) {
       </div>
     </Teleport>
 
-    <BaseHeader :navigation="nav" @open-mobile-menu="mobileMenuOpen = true" />
+    <TheHeader :navigation="nav" @open-mobile-menu="mobileMenuOpen = true" />
 
     <UiSlideover v-if="showMobileMenu" :is-open="mobileMenuOpen" @close="mobileMenuOpen = false">
-      <BaseMobileNavigation class="flex-1" :navigation="nav" @close="mobileMenuOpen = false" />
+      <TheMobileNavigation class="flex-1" :navigation="nav" @close="mobileMenuOpen = false" />
     </UiSlideover>
 
     <NuxtPage :transition="{ css: false, mode: 'out-in', onLeave, onEnter }" />
 
-    <BaseFooter :navigation="nav" />
+    <TheFooter :navigation="nav" />
   </div>
 </template>

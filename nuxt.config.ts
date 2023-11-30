@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   tailwindcss: { viewer: false },
 
   build: { transpile: ['gsap'] },
+  components: [{ path: '~/components', pathPrefix: false }],
 
   ui: { icons: ['ph'] },
 

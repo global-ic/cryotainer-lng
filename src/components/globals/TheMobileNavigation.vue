@@ -6,7 +6,7 @@ defineEmits(['close']);
 </script>
 
 <template>
-  <div class="w-full overflow-y-auto bg-white pt-5 pb-4">
+  <div class="w-full overflow-y-auto bg-white pb-4 pt-5">
     <div class="flex flex-shrink-0 select-none items-center space-x-2 px-4">
       <picture>
         <source srcset="/img/webp/cryotainer-logo.webp" type="image/webp" />
@@ -39,6 +39,6 @@ defineEmits(['close']);
       </div>
     </nav>
 
-    <BaseSocialIcons class="mt-3 ml-4" />
+    <SocialIcons class="ml-4 mt-3" />
   </div>
 </template>

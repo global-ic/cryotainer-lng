@@ -44,7 +44,7 @@ onBeforeUnmount(() => {
               aria-hidden="true"
               class="grid h-5 w-5 place-items-center rounded-full bg-primary-100 text-primary-500 sm:h-7 sm:w-7"
             >
-              <IconsUiCheck class="h-5 w-5 sm:h-7 sm:w-7" />
+              <CheckIcon class="h-5 w-5 sm:h-7 sm:w-7" />
             </div>
             <span class="ml-3 text-zinc-500 sm:text-lg">{{ feature }}</span>
           </li>

@@ -21,7 +21,7 @@ defineProps({ navigation: { type: Array as PropType<NavigationItem[]>, required:
             >Empresa de proyectos e instalaciones criogénicas de confianza.</span
           >
 
-          <BaseSocialIcons />
+          <SocialIcons />
         </div>
 
         <div class="flex flex-1 flex-col gap-10 lg:flex-row">
@@ -59,18 +59,11 @@ defineProps({ navigation: { type: Array as PropType<NavigationItem[]>, required:
         >
 
         <span class="text-center text-sm text-zinc-400 md:text-right"
-          >Diseño y Desarrollo por
+          >Sitio por
           <a
-            href="https://chrisgvdev.com"
-            class="font-semibold text-zinc-600 hover:text-zinc-800"
             target="_blank"
-            >CGV WEB</a
-          >
-          y
-          <a
-            href="https://globalic.com.mx"
+            href="https://globalic.com.mx/?ref=cryotainer"
             class="font-semibold text-zinc-600 hover:text-zinc-800"
-            target="_blank"
             >Global IC</a
           ></span
         >
